@@ -50,7 +50,6 @@ namespace ProgettoGiocoInformatica
 
             try
             {
-
                 Videogioco = new Videogioco();
             }
             catch (Exception ex)

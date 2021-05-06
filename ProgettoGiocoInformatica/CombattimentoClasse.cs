@@ -110,8 +110,6 @@ namespace ProgettoGiocoInformatica
 
         }
 
-       
-
         private int CalcolaDanno(Personaggio personaggioCheColpisce)
         {
             int danno;

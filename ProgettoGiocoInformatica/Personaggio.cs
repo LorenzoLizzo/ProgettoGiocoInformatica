@@ -20,7 +20,6 @@ namespace ProgettoGiocoInformatica
         private int _puntiForzaBase;
         private bool _salta, _sinistra, _destra;
         private int _velocitaSalto, _gravita, _velocitaPersonaggio;
-        private Thickness _posizione;
 
         public Personaggio(string nome, int puntiVita, string percorsoImmagine, List<Arma> listaArmi, List<Animazione> listaAnimazioni, int puntiForzaBase)
         {

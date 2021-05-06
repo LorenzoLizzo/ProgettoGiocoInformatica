@@ -45,7 +45,12 @@ namespace ProgettoGiocoInformatica
 
         public Combattimento()
         {
-
+            InitializeComponent();
+            canvasCombattimento.Focus();
+            p1 = new Personaggio();
+            p2 = new Personaggio();
+            SetImpostazioniP1();
+            SetImpostazioniP2();
         }
 
         private void SetImpostazioniP1()

@@ -7,11 +7,13 @@
         mc:Ignorable="d"
         Title="Combattimento" Height="350" Width="525" WindowStartupLocation="CenterScreen">
     <Canvas x:Name="canvasCombattimento" KeyDown="TastoPremuto" KeyUp="TastoLasciato" Focusable="True" >
-        <Image x:Name="imgPersonaggio2"  Canvas.Left="393" Canvas.Top="160" Height="106" Width="114" Source="p2.jpg"/>
-        <Image x:Name="imgPavimento" Height="53" Width="517" Canvas.Top="266" Canvas.Left="0"/>
-        <Image x:Name="imgPersonaggio1" Canvas.Left="10" Canvas.Top="200" Height="68" Width="71" Source="p1.jpg" />
-
         <Button x:Name="BtnGiocaAncora" Content="Gioca ancora" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Height="60" FontSize="16" Click="BtnGiocaAncora_Click" Visibility="Hidden" Canvas.Left="335" Canvas.Top="240"/>
         <Button x:Name="BtnHome" Content="Home" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Height="60" FontSize="16" Click="BtnHome_Click" Visibility="Hidden" Canvas.Left="335" Canvas.Top="111"/>
+        
+        <Image x:Name="imgPersonaggio2"  Canvas.Left="393" Canvas.Top="200" Height="68" Width="71" Source="p2.jpg"/>
+        <Image x:Name="imgPavimento" Height="53" Width="517" Canvas.Top="266" Canvas.Left="0"/>
+        <Image x:Name="imgPersonaggio1" Canvas.Left="24" Canvas.Top="200" Height="68" Width="71" Source="p1.jpg" />
+
+        
     </Canvas>
 </Window>

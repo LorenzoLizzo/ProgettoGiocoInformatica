@@ -9,37 +9,38 @@ namespace ProgettoGiocoInformatica
 {
     public class Videogioco
     {
-        public class RootPersonaggio
-        {
-            [XmlElement(ElementName = "Personaggio")]
-            public List<Personaggio> Personaggi { get; set; }
-        }
-
-
         private List<Personaggio> _listaPersognaggi;
         private List<Arma> _listaArma;
         private Impostazioni _impostazioni;
 
         public Videogioco()
         {
-            _listaPersognaggi = LeggiFileXmlPersonaggio();
-            _listaArma = LeggiFileXmlArma();
-            _impostazioni = LeggiFileXmlImpostazioni();
+            ListaPersonaggi = LeggiFileXmlPersonaggio();
+            ListaArmi = LeggiFileXmlArma();
+            Impostazioni = LeggiFileXmlImpostazioni();
         }
 
-        public List<Personaggio> ListaPersognaggi
+        public List<Personaggio> ListaPersonaggi
         {
             get
             {
                 return _listaPersognaggi;
             }
+            set
+            {
+                _listaPersognaggi = value;
+            }
         }
 
-        public List<Arma> ListaArma
+        public List<Arma> ListaArmi
         {
             get
             {
                 return _listaArma;
+            }
+            set
+            {
+                _listaArma = value;
             }
         }
 
@@ -49,15 +50,19 @@ namespace ProgettoGiocoInformatica
             {
                 return _impostazioni;
             }
+            set
+            {
+                _impostazioni = value;
+            }
         }
 
         private List<Personaggio> LeggiFileXmlPersonaggio()
         {
-            XmlSerializer deserializzatore = new XmlSerializer(typeof(RootPersonaggio));
+            XmlSerializer deserializzatore = new XmlSerializer(typeof(List<Personaggio>));
             using (StreamReader sr = new StreamReader("personaggi.xml"))
             {
                 if (sr.ReadLine() != null)
-                    return (deserializzatore.Deserialize(sr) as RootPersonaggio).Personaggi;
+                    return deserializzatore.Deserialize(sr) as List<Personaggio>;
                 else
                     throw new Exception("Non sono stati trovati personaggi");
             }
