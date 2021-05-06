@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EsGioco
+namespace ProgettoGiocoInformatica
 {
     public class Arma
     {
         private string _nome;
         private string _percorsoImmagine;
         private int _danno;
-        private string _fileAudio;
         public Arma()
         {
 
@@ -49,15 +48,5 @@ namespace EsGioco
             }
         }
 
-        public string FileAudio
-        {
-            get
-            {
-                return _fileAudio;
-            }
-            set
-            {
-            }
-        }
     }
 }

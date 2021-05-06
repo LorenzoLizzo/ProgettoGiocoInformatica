@@ -1,0 +1,30 @@
+﻿<Window x:Class="ProgettoGiocoInformatica.SceltaPersonaggi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgettoGiocoInformatica"
+        mc:Ignorable="d"
+        Title="SceltaPersonaggi" Height="450" Width="800">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="115,30,0,0"/>
+        <Button x:Name="btnPrimaP1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="50,70,0,0" Click="BottoniPrimaPersonaggi"/>
+        <Button x:Name="btnDopoP1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="242,70,0,0" Click="BottoniDopoPersonaggi"/>
+
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="115,172,0,0"/>
+        <Button x:Name="btnPrimaArmaP1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="50,212,0,0" Click="BottoniPrimaArmi"/>
+        <Button x:Name="btnDopoArmaP1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="242,212,0,0" Click="BottoniDopoArmi"/>
+
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="558,30,0,0"/>
+        <Button x:Name="btnPrimaP2"  Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="42" Margin="492,70,0,0" Click="BottoniPrimaPersonaggi"/>
+        <Button x:Name="btnDopoP2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="684,70,0,0" Click="BottoniDopoPersonaggi"/>
+
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="557,157,0,0"/>
+        <Button x:Name="btnPrimaArmaP2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="492,197,0,0" Click="BottoniPrimaArmi"/>
+        <Button x:Name="btnDopoArmaP2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="684,197,0,0" Click="BottoniDopoArmi"/>
+
+        <Button x:Name="btnProntoP1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="141,333,0,0" Click="btnProntoP1_Click"/>
+        <Button x:Name="btnProntoP2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="586,338,0,0" Click="btnProntoP2_Click"/>
+        <Button x:Name="btnOpzioni" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="733,389,0,0" Click="btnOpzioni_Click"/>
+    </Grid>
+</Window>

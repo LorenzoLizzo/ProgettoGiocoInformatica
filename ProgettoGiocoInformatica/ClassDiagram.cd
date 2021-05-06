@@ -1,45 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="EsGioco.Animazione">
+  <Class Name="ProgettoGiocoInformatica.Animazione">
     <Position X="7.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAEQAAE=</HashCode>
       <FileName>Animazione.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EsGioco.Arma">
+  <Class Name="ProgettoGiocoInformatica.Arma">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAIAAAAAAAAEAAQAAAAABAAAAAAACAAABAAAEAAAA=</HashCode>
+      <HashCode>BAAAIAAAAAAAAAAAQAAAAABAAAAAAACAAAAAAAEAAAA=</HashCode>
       <FileName>Arma.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EsGioco.ArmaEstratta">
+  <Class Name="ProgettoGiocoInformatica.ArmaEstratta">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>ArmaEstratta.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EsGioco.Frame">
+  <Class Name="ProgettoGiocoInformatica.Frame">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Frame.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EsGioco.Impostazioni">
+  <Class Name="ProgettoGiocoInformatica.Impostazioni">
     <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAEAAAAAAACABBAAAEAgAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Impostazioni.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="EsGioco.Personaggio">
+  <Class Name="ProgettoGiocoInformatica.Personaggio">
     <Position X="3" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>DAgAIQAAAAAAFEAAAAAgAABAAAAAAgAIACBAAAEAgAA=</HashCode>
+      <HashCode>BAgAIQAAAAAABAAAAAAgAABAEAAAAgAIACAAAAEAAAA=</HashCode>
       <FileName>Personaggio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProgettoGiocoInformatica.Videogioco">
+    <Position X="10.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAABAAAAAAACQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Videogioco.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -55,6 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SceltaPersonaggi.xaml.cs">
+      <DependentUpon>SceltaPersonaggi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Videogioco.cs" />
+    <Page Include="Combattimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,12 +74,20 @@
     </Compile>
     <Compile Include="Arma.cs" />
     <Compile Include="ArmaEstratta.cs" />
+    <Compile Include="Combattimento.xaml.cs">
+      <DependentUpon>Combattimento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CombattimentoClasse.cs" />
     <Compile Include="Frame.cs" />
     <Compile Include="Impostazioni.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SceltaPersonaggi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Personaggio.cs" />

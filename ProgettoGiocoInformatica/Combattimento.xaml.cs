@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProgettoGiocoInformatica
 {
     /// <summary>
-    /// Logica di interazione per MainWindow.xaml
+    /// Logica di interazione per Combattimento.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Combattimento : Window
     {
-        public MainWindow()
+        public Combattimento()
         {
             InitializeComponent();
-        }
-
-        private void btnGioca_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EsGioco
+namespace ProgettoGiocoInformatica
 {
     public class Personaggio
     {
         private string _nome;
         private int _puntiVita;
         private string _percorsoImmagine;
-        private List<ArmaEstratta> _listaArmiAstratte;
+        private List<Arma> _listaArmi;
         private List<Animazione> _listaAnimazioni;
-        private string _fileAudio;
         private int _puntiForzaBase;
-        private Arma _armaSelezionata;
 
         public Personaggio()
         {
@@ -54,11 +52,11 @@ namespace EsGioco
             }
         }
 
-        public List<ArmaEstratta> ListaArmiAstratte
+        public List<Arma> ListaArmiAstratte
         {
             get
             {
-                return _listaArmiAstratte;
+                return _listaArmi;
             }
             set
             {
@@ -76,16 +74,6 @@ namespace EsGioco
             }
         }
 
-        public string FileAudio
-        {
-            get
-            {
-                return _fileAudio;
-            }
-            set
-            {
-            }
-        }
 
         public int PuntiForzaBase
         {
@@ -98,15 +86,5 @@ namespace EsGioco
             }
         }
 
-        public Arma ArmaSelezionata
-        {
-            get
-            {
-                return _armaSelezionata;
-            }
-            set
-            {
-            }
-        }
     }
 }

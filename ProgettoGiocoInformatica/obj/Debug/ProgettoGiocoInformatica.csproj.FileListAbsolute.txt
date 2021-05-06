@@ -13,3 +13,7 @@ C:\Users\Lorenzo\Desktop\ProgettoGiocoInformatica\ProgettoGiocoInformatica\obj\D
 C:\Users\Lorenzo\Desktop\ProgettoGiocoInformatica\ProgettoGiocoInformatica\obj\Debug\ProgettoGiocoInformatica.csproj.CoreCompileInputs.cache
 C:\Users\Lorenzo\Desktop\ProgettoGiocoInformatica\ProgettoGiocoInformatica\obj\Debug\ProgettoGiocoInformatica.exe
 C:\Users\Lorenzo\Desktop\ProgettoGiocoInformatica\ProgettoGiocoInformatica\obj\Debug\ProgettoGiocoInformatica.pdb
+C:\Users\Lorenzo\Desktop\ProgettoGiocoInformatica\ProgettoGiocoInformatica\obj\Debug\Combattimento.g.cs
+C:\Users\Lorenzo\Desktop\ProgettoGiocoInformatica\ProgettoGiocoInformatica\obj\Debug\SceltaPersonaggi.g.cs
+C:\Users\Lorenzo\Desktop\ProgettoGiocoInformatica\ProgettoGiocoInformatica\obj\Debug\Combattimento.baml
+C:\Users\Lorenzo\Desktop\ProgettoGiocoInformatica\ProgettoGiocoInformatica\obj\Debug\SceltaPersonaggi.baml
