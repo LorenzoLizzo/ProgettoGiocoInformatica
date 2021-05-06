@@ -34,6 +34,10 @@ namespace ProgettoGiocoInformatica
             Destra = false;
         }
 
+        public Personaggio()
+        {
+
+        }
 
         public string Nome
         {
@@ -41,7 +45,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _nome;
             }
-            private set
+            set
             {
                 _nome = value;
             }
@@ -53,7 +57,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _percorsoImmagine;
             }
-            private set
+            set
             {
                 _percorsoImmagine = value;
             }
@@ -77,7 +81,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _listaArmi;
             }
-            private set
+            set
             {
 
             }
@@ -101,7 +105,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _puntiForzaBase;
             }
-            private set
+            set
             {
                 _puntiForzaBase = value;
             }

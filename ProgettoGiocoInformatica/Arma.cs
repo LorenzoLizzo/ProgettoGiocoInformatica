@@ -17,13 +17,18 @@ namespace ProgettoGiocoInformatica
             Danno = danno;
         }
 
+        public Arma()
+        {
+
+        }
+
         public string Nome
         {
             get
             {
                 return _nome;
             }
-            private set
+            set
             {
                 _nome = value;
             }
@@ -35,7 +40,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _percorsoImmagine;
             }
-            private set
+            set
             {
                 _percorsoImmagine = value;
             }
@@ -47,7 +52,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _danno;
             }
-            private set
+            set
             {
                 _danno = value;
             }

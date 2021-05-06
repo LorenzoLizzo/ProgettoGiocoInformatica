@@ -22,7 +22,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _nome;
             }
-            private set
+            set
             {
                 _nome = value;
             }
@@ -34,7 +34,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _fps;
             }
-            private set
+            set
             {
                 _fps = value;
             }

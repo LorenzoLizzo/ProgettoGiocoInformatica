@@ -23,13 +23,19 @@ namespace ProgettoGiocoInformatica
             ArmaP1 = armaP1;
             ArmaP2 = armaP2;
         }
+
+        public CombattimentoClasse()
+        {
+
+        }
+
         public Personaggio P1
         {
             get
             {
                 return _p1;
             }
-            private set
+            set
             {
                 _p1 = value;
             }
@@ -41,7 +47,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _p2;
             }
-            private set
+            set
             {
                 _p2 = value;
             }
@@ -53,7 +59,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _armaP1;
             }
-            private set
+            set
             {
                 _armaP1 = value;
             }
@@ -65,7 +71,7 @@ namespace ProgettoGiocoInformatica
             {
                 return _armaP2;
             }
-            private set
+            set
             {
                 _armaP2 = value;
             }
