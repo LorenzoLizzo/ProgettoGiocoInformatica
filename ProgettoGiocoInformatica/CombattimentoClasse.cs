@@ -82,14 +82,20 @@ namespace ProgettoGiocoInformatica
         }
 
 
-        public void AttaccoP1()
+        public void AttacoP1()
         {
-            
+            if (!P2.Schiva)
+            {
+                TogliVita(P2);
+            }
         }
 
         public void AttaccoP2()
         {
-            
+            if (!P1.Schiva)
+            {
+                TogliVita(P1);
+            }
         }
 
         public void SchivaP1()
@@ -102,29 +108,50 @@ namespace ProgettoGiocoInformatica
             
         }
 
-        public void TogliVita(ref Personaggio p, int q)
-        {
-            if (p.PuntiVita - q <= 0)
-            {
-                throw new PersonaggioSenzaVitaException(p, q);
-            }
+        
 
-            p.PuntiVita -= q;
-        }
-
-        private Personaggio Perdente()
+        private int CalcolaDanno(Personaggio personaggioCheColpisce)
         {
-            if (Vincitore.Equals(P1))
+            int danno;
+
+            if (personaggioCheColpisce.Equals(P1))
             {
-                return P2;
-            }
-            else if (Vincitore.Equals(P2))
-            {
-                return P1;
+                danno = P1.PuntiForzaBase + ArmaP1.Danno;
             }
             else
             {
-                throw new Exception("Errore");
+                danno = P2.PuntiForzaBase + ArmaP2.Danno;
+            }
+
+            return danno;
+        }
+
+        private void TogliVita(Personaggio personaggioColpito)
+        {
+            int q;
+            if (personaggioColpito.Equals(P1))
+            {
+                q = CalcolaDanno(P2);
+            }
+            else
+            {
+                q = CalcolaDanno(P1);
+            }
+
+            if (personaggioColpito.PuntiVita - q <= 0)
+            {
+                throw new PersonaggioSenzaVitaException(personaggioColpito, q);
+            }
+
+            personaggioColpito.PuntiVita -= q;
+
+            if (personaggioColpito.Equals(P1))
+            {
+                P1.PuntiVita = personaggioColpito.PuntiVita;
+            }
+            else
+            {
+                P2.PuntiVita = personaggioColpito.PuntiVita;
             }
         }
     }
