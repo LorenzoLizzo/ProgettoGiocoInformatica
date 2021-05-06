@@ -27,7 +27,9 @@ namespace ProgettoGiocoInformatica
 
         private void btnGioca_Click(object sender, RoutedEventArgs e)
         {
-
+            SceltaPersonaggi finestra = new SceltaPersonaggi();
+            finestra.Show();
+            this.Close();
         }
     }
 }
