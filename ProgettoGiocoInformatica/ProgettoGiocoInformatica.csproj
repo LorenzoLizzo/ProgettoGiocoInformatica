@@ -74,7 +74,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Arma.cs" />
-    <Compile Include="ArmaEstratta.cs" />
     <Compile Include="Combattimento.xaml.cs">
       <DependentUpon>Combattimento.xaml</DependentUpon>
     </Compile>

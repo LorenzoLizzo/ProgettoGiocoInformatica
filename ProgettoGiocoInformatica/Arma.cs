@@ -10,9 +10,11 @@ namespace ProgettoGiocoInformatica
         private string _nome;
         private string _percorsoImmagine;
         private int _danno;
-        public Arma()
+        public Arma(string nome, string percorsoImmagine, int danno)
         {
-
+            Nome = nome;
+            PercorsoImmagine = percorsoImmagine;
+            Danno = danno;
         }
 
         public string Nome
@@ -21,8 +23,9 @@ namespace ProgettoGiocoInformatica
             {
                 return _nome;
             }
-            set
+            private set
             {
+                _nome = value;
             }
         }
 
@@ -32,8 +35,9 @@ namespace ProgettoGiocoInformatica
             {
                 return _percorsoImmagine;
             }
-            set
+            private set
             {
+                _percorsoImmagine = value;
             }
         }
 
@@ -43,8 +47,9 @@ namespace ProgettoGiocoInformatica
             {
                 return _danno;
             }
-            set
+            private set
             {
+                _danno = value;
             }
         }
 

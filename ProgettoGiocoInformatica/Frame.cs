@@ -8,9 +8,9 @@ namespace ProgettoGiocoInformatica
     public class Frame
     {
         private string _percorso;
-        public Frame()
+        public Frame(string percorso)
         {
-
+            Percorso = percorso;
         }
 
         public string Percorso
@@ -19,8 +19,9 @@ namespace ProgettoGiocoInformatica
             {
                 return _percorso;
             }
-            set
+            private set
             {
+                _percorso = value;
             }
         }
     }

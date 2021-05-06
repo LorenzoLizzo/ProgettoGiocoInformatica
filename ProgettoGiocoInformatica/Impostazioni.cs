@@ -10,11 +10,14 @@ namespace ProgettoGiocoInformatica
         private bool _musica;
         private bool _schermoIntero;
         private bool _effettiSonori;
-        private string _comeSiGioca;
+        private bool _comeSiGioca;
 
-        public Impostazioni()
+        public Impostazioni(bool musica, bool schermoIntero, bool effettiSonori, bool comeSiGioca)
         {
-
+            Musica = musica;
+            SchermoIntero = schermoIntero;
+            EffettiSonori = effettiSonori;
+            ComeSiGioca = comeSiGioca;
         }
 
         public bool Musica
@@ -25,6 +28,7 @@ namespace ProgettoGiocoInformatica
             }
             set
             {
+                _musica = value;
             }
         }
 
@@ -36,6 +40,7 @@ namespace ProgettoGiocoInformatica
             }
             set
             {
+                _schermoIntero = value;
             }
         }
 
@@ -47,10 +52,11 @@ namespace ProgettoGiocoInformatica
             }
             set
             {
+                _effettiSonori = value;
             }
         }
 
-        public string ComeSiGioca
+        public bool ComeSiGioca
         {
             get
             {
@@ -58,6 +64,7 @@ namespace ProgettoGiocoInformatica
             }
             set
             {
+                _comeSiGioca = value;
             }
         }
     }
