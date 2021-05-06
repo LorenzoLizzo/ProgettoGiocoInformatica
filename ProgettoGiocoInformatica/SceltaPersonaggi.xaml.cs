@@ -132,8 +132,8 @@ namespace ProgettoGiocoInformatica
 
         private void btnOpzioni_Click(object sender, RoutedEventArgs e)
         {
-            ImpostazioniWindow iw = new ImpostazioniWindow(Videogioco);
-            iw.Show();
+            ImpostazioniWindow impostazioni = new ImpostazioniWindow(Videogioco);
+            impostazioni.Show();
 
             this.Close();
         }

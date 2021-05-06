@@ -56,5 +56,12 @@ namespace ProgettoGiocoInformatica
             //Schermo intero
             Videogioco.Impostazioni.SchermoIntero = (bool)ckIntero.IsChecked;
         }
+
+        private void btnIndietro_Click(object sender, RoutedEventArgs e)
+        {
+            SceltaPersonaggi finestra = new SceltaPersonaggi(Videogioco);
+            finestra.Show();
+            this.Close();
+        }
     }
 }
