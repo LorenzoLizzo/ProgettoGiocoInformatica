@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using System.IO;
+using System.Diagnostics;
 
 namespace ProgettoGiocoInformatica
 {
@@ -55,6 +56,13 @@ namespace ProgettoGiocoInformatica
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Debug.WriteLine(ex);
+            }
+
+            //Schermo intero?
+            if (Videogioco.Impostazioni.SchermoIntero)
+            {
+                this.WindowState = WindowState.Maximized;
             }
 
             foreach (string s in arr)

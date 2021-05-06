@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace ProgettoGiocoInformatica
 {
@@ -10,14 +11,12 @@ namespace ProgettoGiocoInformatica
         private bool _musica;
         private bool _schermoIntero;
         private bool _effettiSonori;
-        private bool _comeSiGioca;
 
-        public Impostazioni(bool musica, bool schermoIntero, bool effettiSonori, bool comeSiGioca)
+        public Impostazioni(bool musica, bool schermoIntero, bool effettiSonori)
         {
             Musica = musica;
             SchermoIntero = schermoIntero;
             EffettiSonori = effettiSonori;
-            ComeSiGioca = comeSiGioca;
         }
 
         public Impostazioni() 
@@ -61,16 +60,5 @@ namespace ProgettoGiocoInformatica
             }
         }
 
-        public bool ComeSiGioca
-        {
-            get
-            {
-                return _comeSiGioca;
-            }
-            set
-            {
-                _comeSiGioca = value;
-            }
-        }
     }
 }

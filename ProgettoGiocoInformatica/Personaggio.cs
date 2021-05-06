@@ -5,9 +5,11 @@ using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Controls;
+using System.Xml.Serialization;
 
 namespace ProgettoGiocoInformatica
 {
+    [XmlRoot(ElementName = "Personaggio")]
     public class Personaggio : IEquatable<Personaggio>
     {
         private string _nome;
@@ -39,6 +41,7 @@ namespace ProgettoGiocoInformatica
 
         }
 
+        [XmlElement(ElementName = "Nome")]
         public string Nome
         {
             get
@@ -51,6 +54,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        [XmlElement(ElementName = "PercorsoImmagine")]
         public string PercorsoImmagine
         {
             get
@@ -63,6 +67,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        [XmlElement(ElementName = "PuntiVita")]
         public int PuntiVita
         {
             get
@@ -75,6 +80,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        [XmlElement(ElementName = "ListaArmi")]
         public List<Arma> ListaArmi
         {
             get
@@ -87,6 +93,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        [XmlElement(ElementName = "ListaAnimazioni")]
         public List<Animazione> ListaAnimazioni
         {
             get
@@ -98,7 +105,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
-
+        [XmlElement(ElementName = "PuntiForzaBase")]
         public int PuntiForzaBase
         {
             get
@@ -111,6 +118,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        [XmlIgnore]
         public bool Schiva
         {
             get
