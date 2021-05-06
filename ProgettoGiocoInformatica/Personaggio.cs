@@ -18,11 +18,11 @@ namespace ProgettoGiocoInformatica
         private List<Arma> _listaArmi;
         private List<Animazione> _listaAnimazioni;
         private int _puntiForzaBase;
-        private bool _schiva, _salta, _sinistra, _destra;
-        private int _velocitaSalto, _forza, _velocitaPersonaggio;
+        private bool _salta, _sinistra, _destra;
+        private int _velocitaSalto, _forza, _velocitaPersonaggio, _altezza;
         private Thickness _posizione;
 
-        public Personaggio(string nome, int puntiVita, string percorsoImmagine, List<Arma> listaArmi, List<Animazione> listaAnimazioni, int puntiForzaBase, bool schiva = false)
+        public Personaggio(string nome, int puntiVita, string percorsoImmagine, List<Arma> listaArmi, List<Animazione> listaAnimazioni, int puntiForzaBase)
         {
             Nome = nome;
             PuntiVita = puntiVita;
@@ -30,7 +30,6 @@ namespace ProgettoGiocoInformatica
             ListaArmi = listaArmi;
             ListaAnimazioni = listaAnimazioni;
             PuntiForzaBase = puntiForzaBase;
-            Schiva = false;
             Salta = false;
             Sinistra = false;
             Destra = false;
@@ -119,18 +118,6 @@ namespace ProgettoGiocoInformatica
         }
 
         [XmlIgnore]
-        public bool Schiva
-        {
-            get
-            {
-                return _schiva;
-            }
-            set
-            {
-                _schiva = value;
-            }
-        }
-
         public bool Salta
         {
             get
@@ -143,6 +130,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        [XmlIgnore]
         public bool Sinistra
         {
             get
@@ -155,6 +143,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        [XmlIgnore]
         public bool Destra
         {
             get
@@ -167,6 +156,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        [XmlIgnore]
         public int VelocitaSalto
         {
             get
@@ -179,6 +169,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        [XmlIgnore]
         public int Forza
         {
             get
@@ -191,6 +182,7 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        [XmlIgnore]
         public int VelocitaPersonaggio
         {
             get
@@ -200,6 +192,19 @@ namespace ProgettoGiocoInformatica
             set
             {
                 _velocitaPersonaggio = value;
+            }
+        }
+
+        [XmlIgnore]
+        public int Altezza
+        {
+            get
+            {
+                return _altezza;
+            }
+            set
+            {
+                _altezza = value;
             }
         }
 
@@ -246,7 +251,7 @@ namespace ProgettoGiocoInformatica
 
         }
 
-        private void TastoPremuto(KeyEventArgs eventoTasto)
+        public void TastoPremuto(KeyEventArgs eventoTasto)
         {
             if (eventoTasto.Key == Key.Left)
             {
@@ -260,13 +265,9 @@ namespace ProgettoGiocoInformatica
             {
                 Salta = true;
             }
-            if (eventoTasto.Key == Key.Down && Schiva == false)
-            {
-                Schiva = true;
-            }
         }
 
-        private void TastoLasciato(KeyEventArgs eventoTasto)
+        public void TastoLasciato(KeyEventArgs eventoTasto)
         {
             if (eventoTasto.Key == Key.Left)
             {
@@ -279,10 +280,6 @@ namespace ProgettoGiocoInformatica
             if (Salta == true)
             {
                 Salta = false;
-            }
-            if (Schiva == true)
-            {
-                Schiva = false;
             }
         }
 

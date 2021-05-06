@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgettoGiocoInformatica"
         mc:Ignorable="d"
-        Title="Combattimento" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Combattimento" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+    <Canvas x:Name="canvasCombattimento" KeyDown="prova" KeyUp="prova2" Focusable="True" >
+        <Image x:Name="imgPersonaggio2"  Canvas.Left="393" Canvas.Top="160" Height="106" Width="114" Source="p2.jpg"/>
+        <Image x:Name="imgPavimento" Height="53" Width="517" Canvas.Top="266" Canvas.Left="0"/>
+        <Image x:Name="imgPersonaggio1" Canvas.Left="10" Canvas.Top="200" Height="68" Width="71" Source="p1.jpg" />
+    </Canvas>
 </Window>
