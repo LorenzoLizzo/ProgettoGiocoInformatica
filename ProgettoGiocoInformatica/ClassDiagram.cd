@@ -6,6 +6,9 @@
       <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAEQAAE=</HashCode>
       <FileName>Animazione.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Frame" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ProgettoGiocoInformatica.Arma">
     <Position X="1" Y="0.5" Width="1.5" />
@@ -29,11 +32,15 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProgettoGiocoInformatica.Personaggio">
-    <Position X="3" Y="3.25" Width="1.5" />
+    <Position X="1" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAgAoQCEAAAADAAKgAEgIEHAEAAAggAAACAAAAEQAAA=</HashCode>
       <FileName>Personaggio.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ListaAnimazioni" />
+      <Property Name="ListaArmi" />
+    </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ProgettoGiocoInformatica.Videogioco">
@@ -42,6 +49,13 @@
       <HashCode>AAAAQAAAAAAAAABAAgAAAACRAAAAAACAAgAAAAAAAAQ=</HashCode>
       <FileName>Videogioco.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Impostazioni" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ListaPersonaggi" />
+      <Property Name="ListaArmi" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ProgettoGiocoInformatica.CombattimentoClasse">
     <Position X="5" Y="3.25" Width="1.5" />
@@ -49,6 +63,13 @@
       <HashCode>CAAAAAABAAAAAAAAAQAAARAABMCAAAAAAAAAAAAQAgA=</HashCode>
       <FileName>CombattimentoClasse.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ArmaP1" />
+      <Property Name="ArmaP2" />
+      <Property Name="P1" />
+      <Property Name="P2" />
+      <Property Name="Vincitore" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ProgettoGiocoInformatica.PersonaggioSenzaVitaException">
     <Position X="9.75" Y="4.5" Width="1.5" />

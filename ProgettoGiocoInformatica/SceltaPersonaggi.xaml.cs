@@ -20,16 +20,6 @@ namespace ProgettoGiocoInformatica
     /// </summary>
     public partial class SceltaPersonaggi : Window
     {
-        private Personaggio _p1;
-        private Personaggio _p2;
-        private Image _immagineP1;
-        private Image _immagineP2;
-
-        private Arma _armaP1;
-        private Arma _armaP2;
-        private Image _immagineArmaP1;
-        private Image _immagineArmaP2;
-
         private bool _p1Pronto;
         private bool _p2Pronto;
 
@@ -43,6 +33,8 @@ namespace ProgettoGiocoInformatica
 
             InitializeComponent();
 
+            imgPersonaggioP1.Source = new BitmapImage(new Uri(Videogioco.ListaPersonaggi[0].PercorsoImmagine, UriKind.Relative));
+
             //Schermo intero?
             if (v.Impostazioni.SchermoIntero)
             {
@@ -50,16 +42,89 @@ namespace ProgettoGiocoInformatica
             }
         }
 
+        public SceltaPersonaggi()
+        {
+            InitializeComponent();
+            Videogioco = new Videogioco();
+        }
+
+        private void BottonePrimaPersonaggi(Image img)
+        {
+            for (int i = 0; i < Videogioco.ListaPersonaggi.Count; i++)
+            {
+                if (img.Source == new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i].PercorsoImmagine, UriKind.Relative)) && i != 0)
+                {
+                    img.Source = new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i - 1].PercorsoImmagine, UriKind.Relative));
+                    break;
+                }
+                else if (img.Source == new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i].PercorsoImmagine, UriKind.Relative)) && i == 0)
+                {
+                    img.Source = new BitmapImage(new Uri(Videogioco.ListaPersonaggi[Videogioco.ListaPersonaggi.Count - 1].PercorsoImmagine, UriKind.Relative));
+                    break;
+                }
+            }
+        }
+
+        private void BottoneDopoPersonaggi(Image img)
+        {
+            for (int i = 0; i < Videogioco.ListaPersonaggi.Count; i++)
+            {
+                if (img.Source == new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i].PercorsoImmagine, UriKind.Relative)) && i != Videogioco.ListaPersonaggi.Count - 1)
+                {
+                    img.Source = new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i + 1].PercorsoImmagine, UriKind.Relative));
+                    break;
+                }
+                else if (img.Source == new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i].PercorsoImmagine, UriKind.Relative)) && i == Videogioco.ListaPersonaggi.Count - 1)
+                {
+                    img.Source = new BitmapImage(new Uri(Videogioco.ListaPersonaggi[0].PercorsoImmagine, UriKind.Relative));
+                    break;
+                }
+            }
+        }
+
+        private void BottonePrimaArmi(Image img)
+        {
+            for (int i = 0; i < Videogioco.ListaArmi.Count; i++)
+            {
+                if (img.Source == new BitmapImage(new Uri(Videogioco.ListaArmi[i].PercorsoImmagine, UriKind.Relative)) && i != 0)
+                {
+                    img.Source = new BitmapImage(new Uri(Videogioco.ListaArmi[i - 1].PercorsoImmagine, UriKind.Relative));
+                    break;
+                }
+                else if (img.Source == new BitmapImage(new Uri(Videogioco.ListaArmi[i].PercorsoImmagine, UriKind.Relative)) && i == 0)
+                {
+                    img.Source = new BitmapImage(new Uri(Videogioco.ListaArmi[Videogioco.ListaArmi.Count - 1].PercorsoImmagine, UriKind.Relative));
+                    break;
+                }
+            }
+        }
+
+        private void BottoneDopoArmi(Image img)
+        {
+            for (int i = 0; i < Videogioco.ListaPersonaggi.Count; i++)
+            {
+                if (img.Source == new BitmapImage(new Uri(Videogioco.ListaArmi[i].PercorsoImmagine, UriKind.Relative)) && i != Videogioco.ListaArmi.Count - 1)
+                {
+                    img.Source = new BitmapImage(new Uri(Videogioco.ListaArmi[i + 1].PercorsoImmagine, UriKind.Relative));
+                    break;
+                }
+                else if (img.Source == new BitmapImage(new Uri(Videogioco.ListaArmi[i].PercorsoImmagine, UriKind.Relative)) && i == Videogioco.ListaArmi.Count - 1)
+                {
+                    img.Source = new BitmapImage(new Uri(Videogioco.ListaArmi[0].PercorsoImmagine, UriKind.Relative));
+                    break;
+                }
+            }
+        }
 
         private void BottoniPrimaPersonaggi(object sender, RoutedEventArgs e)
         {
             if ((Button)sender == btnPrimaP1)
             {
-                //Cambia P1
+                BottonePrimaPersonaggi(imgPersonaggioP1);
             }
             else
             {
-                //Cambia P2
+                BottonePrimaPersonaggi(imgPersonaggioP2);
             }
         }
 
@@ -67,11 +132,11 @@ namespace ProgettoGiocoInformatica
         {
             if ((Button)sender == btnDopoP1)
             {
-                //Cambia P1
+                BottoneDopoPersonaggi(imgPersonaggioP1);
             }
             else
             {
-                //Cambia P2
+                BottoneDopoPersonaggi(imgPersonaggioP2);
             }
         }
 
@@ -79,11 +144,11 @@ namespace ProgettoGiocoInformatica
         {
             if ((Button)sender == btnPrimaArmaP1)
             {
-                //Cambia arma P1
+                BottonePrimaArmi(imgArmaPersonaggioP1);
             }
             else
             {
-                //Cambia arma P2
+                BottonePrimaArmi(imgArmaPersonaggioP2);
             }
         }
 
@@ -91,11 +156,11 @@ namespace ProgettoGiocoInformatica
         {
             if ((Button)sender == btnDopoArmaP1)
             {
-                //Cambia arma P1
+                BottoneDopoArmi(imgArmaPersonaggioP1);
             }
             else
             {
-                //Cambia arma P2
+                BottoneDopoArmi(imgArmaPersonaggioP2);
             }
         }
 
