@@ -23,8 +23,8 @@
         <Button x:Name="btnPrimaArmaP2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="492,197,0,0" Click="BottoniPrimaArmi"/>
         <Button x:Name="btnDopoArmaP2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="684,197,0,0" Click="BottoniDopoArmi"/>
 
-        <Button x:Name="btnProntoP1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="141,333,0,0" Click="btnProntoP1_Click"/>
-        <Button x:Name="btnProntoP2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="586,338,0,0" Click="btnProntoP2_Click"/>
+        <Button x:Name="btnProntoP1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="141,333,0,0" Click="btnProntoClick"/>
+        <Button x:Name="btnProntoP2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="586,338,0,0" Click="btnProntoClick"/>
         <Button x:Name="btnOpzioni" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="49" Margin="733,389,0,0" Click="btnOpzioni_Click"/>
     </Grid>
 </Window>

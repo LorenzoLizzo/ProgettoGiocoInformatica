@@ -20,6 +20,8 @@ namespace ProgettoGiocoInformatica
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Videogioco Videogioco { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace ProgettoGiocoInformatica
 
         private void btnGioca_Click(object sender, RoutedEventArgs e)
         {
-            SceltaPersonaggi finestra = new SceltaPersonaggi();
+            SceltaPersonaggi finestra = new SceltaPersonaggi(Videogioco);
             finestra.Show();
             this.Close();
         }

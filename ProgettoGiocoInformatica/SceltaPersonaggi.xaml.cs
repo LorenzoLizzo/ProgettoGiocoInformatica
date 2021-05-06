@@ -35,45 +35,108 @@ namespace ProgettoGiocoInformatica
 
         private Timer _timer;
 
-        public SceltaPersonaggi()
+        private Videogioco Videogioco { get; set; }
+
+        public SceltaPersonaggi(Videogioco v)
         {
+            Videogioco = v;
+
             InitializeComponent();
+
+            //Schermo intero?
+            if (v.Impostazioni.SchermoIntero)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
         }
 
 
         private void BottoniPrimaPersonaggi(object sender, RoutedEventArgs e)
         {
-
+            if ((Button)sender == btnPrimaP1)
+            {
+                //Cambia P1
+            }
+            else
+            {
+                //Cambia P2
+            }
         }
 
         private void BottoniDopoPersonaggi(object sender, RoutedEventArgs e)
         {
-
+            if ((Button)sender == btnDopoP1)
+            {
+                //Cambia P1
+            }
+            else
+            {
+                //Cambia P2
+            }
         }
 
         private void BottoniPrimaArmi(object sender, RoutedEventArgs e)
         {
-
+            if ((Button)sender == btnPrimaArmaP1)
+            {
+                //Cambia arma P1
+            }
+            else
+            {
+                //Cambia arma P2
+            }
         }
 
         private void BottoniDopoArmi(object sender, RoutedEventArgs e)
         {
-
+            if ((Button)sender == btnDopoArmaP1)
+            {
+                //Cambia arma P1
+            }
+            else
+            {
+                //Cambia arma P2
+            }
         }
 
-        private void btnProntoP1_Click(object sender, RoutedEventArgs e)
+        private void btnProntoClick(object sender, RoutedEventArgs e)
         {
+            if ((Button)sender == btnProntoP1)
+            {
+                //Il giocatore P1 è pronto
 
-        }
+                btnProntoP1.IsEnabled = false;
+                _p1Pronto = true;
+            }
+            else
+            {
+                //Il giocatore P2 è pronto
 
-        private void btnProntoP2_Click(object sender, RoutedEventArgs e)
-        {
+                btnProntoP2.IsEnabled = false;
+                _p2Pronto = true;
+            }
+
+            if (_p2Pronto && _p1Pronto)
+            {
+                //Tutti e due i personaggi sono pronti
+                CombattimentoClasse cl = new CombattimentoClasse(_p1, _p2, _armaP1, _armaP2);
+
+                Combattimento c = new Combattimento(cl);
+
+                c.Show();
+                this.Close();
+            }
+
 
         }
 
         private void btnOpzioni_Click(object sender, RoutedEventArgs e)
         {
+            ImpostazioniWindow iw = new ImpostazioniWindow(Videogioco);
+            iw.Show();
 
+            this.Close();
         }
+
     }
 }

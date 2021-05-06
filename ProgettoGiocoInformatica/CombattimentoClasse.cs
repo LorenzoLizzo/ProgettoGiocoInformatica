@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace ProgettoGiocoInformatica
 {
-    class CombattimentoClasse
+    public class CombattimentoClasse
     {
         Personaggio _p1;
         Personaggio _p2;

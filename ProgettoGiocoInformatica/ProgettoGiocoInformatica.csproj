@@ -55,12 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ImpostazioniWindow.xaml.cs">
+      <DependentUpon>ImpostazioniWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PersonaggioSenzaVitaExeption.cs" />
     <Compile Include="SceltaPersonaggi.xaml.cs">
       <DependentUpon>SceltaPersonaggi.xaml</DependentUpon>
     </Compile>
     <Compile Include="Videogioco.cs" />
     <Page Include="Combattimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImpostazioniWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
