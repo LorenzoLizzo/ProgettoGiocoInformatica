@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="ImpostazioniWindow" Height="450" Width="800">
     <Grid>
-        <CheckBox x:Name="ckXfx" Content="Effetti sonori" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="ckIntero" Content="Schermo Intero" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="ckMusica" Content="Musica" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="ckXfx" Content="Effetti sonori" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="ckXfx_Checked"/>
+        <CheckBox x:Name="ckIntero" Content="Schermo Intero" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Checked="ckIntero_Checked"/>
+        <CheckBox x:Name="ckMusica" Content="Musica" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Checked="ckMusica_Checked"/>
     </Grid>
 </Window>
