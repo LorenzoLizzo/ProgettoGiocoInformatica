@@ -21,6 +21,7 @@ namespace ProgettoGiocoInformatica
     public partial class Combattimento : Window
     {
         private CombattimentoClasse ClasseCombattimento { get; set; }
+        private Videogioco Videogioco { get; set; }
 
         DispatcherTimer timer;
         CombattimentoClasse gioco;
@@ -116,6 +117,20 @@ namespace ProgettoGiocoInformatica
                 salta = false;
                 gravita = 10;
             }
+        }
+
+        private void BtnHome_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow finestra = new MainWindow();
+            finestra.Show();
+            this.Close();
+        }
+
+        private void BtnGiocaAncora_Click(object sender, RoutedEventArgs e)
+        {
+            SceltaPersonaggi finestra = new SceltaPersonaggi(Videogioco);
+            finestra.Show();
+            this.Close();
         }
     }
 }
