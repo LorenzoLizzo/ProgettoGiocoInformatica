@@ -76,9 +76,14 @@ namespace ProgettoGiocoInformatica
             throw new System.NotImplementedException();
         }
 
-        public void TogliVita()
+        public void TogliVita(ref Personaggio p, int q)
         {
-            throw new System.NotImplementedException();
+            if (p.PuntiVita - q <= 0)
+            {
+                throw new PersonaggioSenzaVitaException(p, q);
+            }
+
+            p.PuntiVita -= q;
         }
     }
 }

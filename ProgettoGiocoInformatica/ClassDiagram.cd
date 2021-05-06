@@ -49,5 +49,19 @@
       <FileName>Videogioco.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ProgettoGiocoInformatica.CombattimentoClasse">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAABAAAAAAAAAAAAAYAABACAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>CombattimentoClasse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProgettoGiocoInformatica.PersonaggioSenzaVitaException">
+    <Position X="10.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PersonaggioSenzaVitaExeption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
