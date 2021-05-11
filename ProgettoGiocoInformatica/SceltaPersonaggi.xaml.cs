@@ -25,7 +25,7 @@ namespace ProgettoGiocoInformatica
 
         private Timer _timer;
 
-        private Videogioco Videogioco { get; set; }
+        public Videogioco Videogioco { get; set; }
 
         public SceltaPersonaggi(Videogioco v)
         {
@@ -184,7 +184,7 @@ namespace ProgettoGiocoInformatica
             if (_p2Pronto && _p1Pronto)
             {
                 //Tutti e due i personaggi sono pronti
-                CombattimentoClasse cl = new CombattimentoClasse(_p1, _p2, _armaP1, _armaP2);
+                CombattimentoClasse cl = new CombattimentoClasse(new Personaggio(), new Personaggio(), new Arma(), new Arma());
 
                 Combattimento c = new Combattimento(cl);
 
@@ -199,7 +199,6 @@ namespace ProgettoGiocoInformatica
         {
             ImpostazioniWindow impostazioni = new ImpostazioniWindow(Videogioco);
             impostazioni.Show();
-
             this.Close();
         }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgettoGiocoInformatica"
         mc:Ignorable="d"
-        Title="SceltaPersonaggi" Height="450" Width="800">
+        Title="SceltaPersonaggi" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Image  x:Name="imgPersonaggioP1" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="115,30,0,0"/>
         <Button x:Name="btnPrimaP1" Content="&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Margin="50,70,0,0" Click="BottoniPrimaPersonaggi"/>

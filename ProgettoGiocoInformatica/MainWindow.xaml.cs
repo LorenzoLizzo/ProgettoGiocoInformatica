@@ -61,7 +61,10 @@ namespace ProgettoGiocoInformatica
             //Schermo intero?
             if (Videogioco.Impostazioni.SchermoIntero)
             {
-                this.WindowState = WindowState.Maximized;
+                Dispatcher.BeginInvoke((Action)(() =>
+                {
+                    this.WindowState = WindowState.Maximized;
+                }));
             }
 
             foreach (string s in arr)

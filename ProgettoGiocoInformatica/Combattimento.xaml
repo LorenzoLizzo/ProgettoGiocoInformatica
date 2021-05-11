@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgettoGiocoInformatica"
         mc:Ignorable="d"
-        Title="Combattimento" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+        Title="Combattimento" Height="350" Width="525" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Canvas x:Name="canvasCombattimento" KeyDown="TastoPremuto" KeyUp="TastoLasciato" Focusable="True" >
         <Button x:Name="BtnGiocaAncora" Content="Gioca ancora" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Height="60" FontSize="16" Click="BtnGiocaAncora_Click" Visibility="Hidden" Canvas.Left="335" Canvas.Top="240"/>
         <Button x:Name="BtnHome" Content="Home" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Height="60" FontSize="16" Click="BtnHome_Click" Visibility="Hidden" Canvas.Left="335" Canvas.Top="111"/>

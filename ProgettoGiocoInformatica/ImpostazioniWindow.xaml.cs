@@ -39,19 +39,19 @@ namespace ProgettoGiocoInformatica
             ckXfx.IsChecked = v.Impostazioni.EffettiSonori;
         }
 
-        private void ckXfx_Checked(object sender, RoutedEventArgs e)
+        private void ckXfx_Click(object sender, RoutedEventArgs e)
         {
             //Effetti sonori
             Videogioco.Impostazioni.EffettiSonori = (bool)ckXfx.IsChecked;
         }
 
-        private void ckMusica_Checked(object sender, RoutedEventArgs e)
+        private void ckMusica_Click(object sender, RoutedEventArgs e)
         {
             //Musica
             Videogioco.Impostazioni.Musica = (bool)ckMusica.IsChecked;
         }
 
-        private void ckIntero_Checked(object sender, RoutedEventArgs e)
+        private void ckIntero_Click(object sender, RoutedEventArgs e)
         {
             //Schermo intero
             Videogioco.Impostazioni.SchermoIntero = (bool)ckIntero.IsChecked;
@@ -59,9 +59,12 @@ namespace ProgettoGiocoInformatica
 
         private void btnIndietro_Click(object sender, RoutedEventArgs e)
         {
+            Videogioco.SalvaImpostazioni();
             SceltaPersonaggi finestra = new SceltaPersonaggi(Videogioco);
             finestra.Show();
             this.Close();
         }
+
+        
     }
 }

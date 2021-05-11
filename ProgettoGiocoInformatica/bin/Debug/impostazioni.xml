@@ -2,5 +2,5 @@
 <Impostazioni xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Musica>true</Musica>
   <SchermoIntero>false</SchermoIntero>
-  <EffettiSonori>true</EffettiSonori> 
+  <EffettiSonori>true</EffettiSonori>
 </Impostazioni>

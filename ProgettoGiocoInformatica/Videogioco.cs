@@ -91,5 +91,19 @@ namespace ProgettoGiocoInformatica
                     throw new Exception("Errore");
             }
         }
+
+        private void SerializzaImpostazioni()
+        {
+            XmlSerializer serializzazione = new XmlSerializer(typeof(Impostazioni));
+            using (StreamWriter sw = new StreamWriter("impostazioni.xml"))
+            {
+                serializzazione.Serialize(sw, Impostazioni);
+            }
+        }
+
+        public void SalvaImpostazioni()
+        {
+            SerializzaImpostazioni();
+        }
     }
 }

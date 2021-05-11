@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using System.Xml.Serialization;
-using System.Windows.Input;
-using System.Windows;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace ProgettoGiocoInformatica
