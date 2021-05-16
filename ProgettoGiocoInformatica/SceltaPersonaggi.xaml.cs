@@ -20,20 +20,34 @@ namespace ProgettoGiocoInformatica
     /// </summary>
     public partial class SceltaPersonaggi : Window
     {
-        private bool _p1Pronto;
-        private bool _p2Pronto;
+        private Personaggio _p1Selezionato; 
+        private Personaggio _p2Selezionato; 
+        private Arma _armaP1Selezionata; 
+        private Arma _armaP2Selezionata; 
 
-        private Timer _timer;
+        private List <KeyValuePair <BitmapImage, Personaggio>> _immaginiPersonaggi;
+        private List <KeyValuePair <BitmapImage, Arma>> _immaginiArmi;
 
-        public Videogioco Videogioco { get; set; }
+        private Videogioco Videogioco { get; set; }
 
         public SceltaPersonaggi(Videogioco v)
         {
             Videogioco = v;
+            _immaginiPersonaggi = new List<KeyValuePair<BitmapImage, Personaggio>>();
+            _immaginiArmi = new List<KeyValuePair<BitmapImage, Arma>>();
 
             InitializeComponent();
 
-            imgPersonaggioP1.Source = new BitmapImage(new Uri(Videogioco.ListaPersonaggi[0].PercorsoImmagine, UriKind.Relative));
+            //Caricamento percorsi
+            CaricamentoImmagini();
+
+            //Immagini a schermo dei personaggi
+            imgPersonaggioP1.Source = _immaginiPersonaggi[0].Key;
+            imgPersonaggioP2.Source = _immaginiPersonaggi[0].Key;
+
+            //Immagini a schermo delle armi
+            imgArmaPersonaggioP1.Source = _immaginiArmi[0].Key;
+            imgArmaPersonaggioP2.Source = _immaginiArmi[0].Key;
 
             //Schermo intero?
             if (v.Impostazioni.SchermoIntero)
@@ -42,24 +56,50 @@ namespace ProgettoGiocoInformatica
             }
         }
 
-        public SceltaPersonaggi()
+        private void CaricamentoImmagini()
         {
-            InitializeComponent();
-            Videogioco = new Videogioco();
+            //Carica immagini personaggi
+            foreach(Personaggio personaggio in Videogioco.ListaPersonaggi)
+            {
+                _immaginiPersonaggi.Add(new KeyValuePair<BitmapImage, Personaggio> (new BitmapImage(new Uri(personaggio.PercorsoImmagine, UriKind.Relative)), personaggio));
+            }
+
+            //Carica immagini armi
+            foreach (Arma arma in Videogioco.ListaArmi)
+            {
+                _immaginiArmi.Add(new KeyValuePair<BitmapImage, Arma> (new BitmapImage(new Uri(arma.PercorsoImmagine, UriKind.Relative)), arma));
+            }
         }
 
         private void BottonePrimaPersonaggi(Image img)
         {
-            for (int i = 0; i < Videogioco.ListaPersonaggi.Count; i++)
+            for (int i = 0; i < _immaginiPersonaggi.Count; i++)
             {
-                if (img.Source == new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i].PercorsoImmagine, UriKind.Relative)) && i != 0)
+                if (img.Source.Equals(_immaginiPersonaggi[i].Key) && i != 0)
                 {
-                    img.Source = new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i - 1].PercorsoImmagine, UriKind.Relative));
+                    img.Source = _immaginiPersonaggi[i - 1].Key;
+                    if (img.Name.Contains("1"))
+                    {
+                        _p1Selezionato = _immaginiPersonaggi[i - 1].Value;
+                    }
+                    else
+                    {
+                        _p2Selezionato = _immaginiPersonaggi[i - 1].Value;
+                    }
                     break;
                 }
-                else if (img.Source == new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i].PercorsoImmagine, UriKind.Relative)) && i == 0)
+                else if (img.Source.Equals(_immaginiPersonaggi[i].Key) && i == 0)
                 {
-                    img.Source = new BitmapImage(new Uri(Videogioco.ListaPersonaggi[Videogioco.ListaPersonaggi.Count - 1].PercorsoImmagine, UriKind.Relative));
+                    img.Source = _immaginiPersonaggi[_immaginiPersonaggi.Count - 1].Key;
+                    if (img.Name.Contains("1"))
+                    {
+                        _p1Selezionato = _immaginiPersonaggi[_immaginiPersonaggi.Count - 1].Value;
+                    }
+                    else
+                    {
+                        _p2Selezionato = _immaginiPersonaggi[_immaginiPersonaggi.Count - 1].Value;
+                    }
+                  
                     break;
                 }
             }
@@ -67,16 +107,32 @@ namespace ProgettoGiocoInformatica
 
         private void BottoneDopoPersonaggi(Image img)
         {
-            for (int i = 0; i < Videogioco.ListaPersonaggi.Count; i++)
+            for (int i = 0; i < _immaginiPersonaggi.Count; i++)
             {
-                if (img.Source == new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i].PercorsoImmagine, UriKind.Relative)) && i != Videogioco.ListaPersonaggi.Count - 1)
+                if (img.Source.Equals(_immaginiPersonaggi[i].Key) && i != _immaginiPersonaggi.Count - 1)
                 {
-                    img.Source = new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i + 1].PercorsoImmagine, UriKind.Relative));
+                    img.Source = _immaginiPersonaggi[i + 1].Key;
+                    if (img.Name.Contains("1"))
+                    {
+                        _p1Selezionato = _immaginiPersonaggi[i + 1].Value;
+                    }
+                    else
+                    {
+                        _p2Selezionato = _immaginiPersonaggi[i + 1].Value;
+                    }
                     break;
                 }
-                else if (img.Source == new BitmapImage(new Uri(Videogioco.ListaPersonaggi[i].PercorsoImmagine, UriKind.Relative)) && i == Videogioco.ListaPersonaggi.Count - 1)
+                else if (img.Source.Equals(_immaginiPersonaggi[i].Key) && i == _immaginiPersonaggi.Count - 1)
                 {
-                    img.Source = new BitmapImage(new Uri(Videogioco.ListaPersonaggi[0].PercorsoImmagine, UriKind.Relative));
+                    img.Source = _immaginiPersonaggi[0].Key;
+                    if (img.Name.Contains("1"))
+                    {
+                        _p1Selezionato = _immaginiPersonaggi[0].Value;
+                    }
+                    else
+                    {
+                        _p2Selezionato = _immaginiPersonaggi[0].Value;
+                    }
                     break;
                 }
             }
@@ -84,16 +140,32 @@ namespace ProgettoGiocoInformatica
 
         private void BottonePrimaArmi(Image img)
         {
-            for (int i = 0; i < Videogioco.ListaArmi.Count; i++)
+            for (int i = 0; i < _immaginiArmi.Count; i++)
             {
-                if (img.Source == new BitmapImage(new Uri(Videogioco.ListaArmi[i].PercorsoImmagine, UriKind.Relative)) && i != 0)
+                if (img.Source.Equals(_immaginiArmi[i].Key) && i != 0)
                 {
-                    img.Source = new BitmapImage(new Uri(Videogioco.ListaArmi[i - 1].PercorsoImmagine, UriKind.Relative));
+                    img.Source = _immaginiArmi[i - 1].Key;
+                    if (img.Name.Contains("1"))
+                    {
+                        _armaP1Selezionata = _immaginiArmi[i - 1].Value;
+                    }
+                    else
+                    {
+                        _armaP2Selezionata = _immaginiArmi[i - 1].Value;
+                    }
                     break;
                 }
-                else if (img.Source == new BitmapImage(new Uri(Videogioco.ListaArmi[i].PercorsoImmagine, UriKind.Relative)) && i == 0)
+                else if (img.Source.Equals(_immaginiArmi[i].Key) && i == 0)
                 {
-                    img.Source = new BitmapImage(new Uri(Videogioco.ListaArmi[Videogioco.ListaArmi.Count - 1].PercorsoImmagine, UriKind.Relative));
+                    img.Source = _immaginiArmi[_immaginiArmi.Count - 1].Key;
+                    if (img.Name.Contains("1"))
+                    {
+                        _armaP1Selezionata = _immaginiArmi[_immaginiArmi.Count - 1].Value;
+                    }
+                    else
+                    {
+                        _armaP2Selezionata = _immaginiArmi[_immaginiArmi.Count - 1].Value;
+                    }
                     break;
                 }
             }
@@ -101,16 +173,32 @@ namespace ProgettoGiocoInformatica
 
         private void BottoneDopoArmi(Image img)
         {
-            for (int i = 0; i < Videogioco.ListaPersonaggi.Count; i++)
+            for (int i = 0; i < _immaginiArmi.Count; i++)
             {
-                if (img.Source == new BitmapImage(new Uri(Videogioco.ListaArmi[i].PercorsoImmagine, UriKind.Relative)) && i != Videogioco.ListaArmi.Count - 1)
+                if (img.Source.Equals(_immaginiArmi[i].Key) && i != _immaginiArmi.Count - 1)
                 {
-                    img.Source = new BitmapImage(new Uri(Videogioco.ListaArmi[i + 1].PercorsoImmagine, UriKind.Relative));
+                    img.Source = _immaginiArmi[i + 1].Key;
+                    if (img.Name.Contains("1"))
+                    {
+                        _armaP1Selezionata = _immaginiArmi[i + 1].Value;
+                    }
+                    else
+                    {
+                        _armaP2Selezionata = _immaginiArmi[i + 1].Value;
+                    }
                     break;
                 }
-                else if (img.Source == new BitmapImage(new Uri(Videogioco.ListaArmi[i].PercorsoImmagine, UriKind.Relative)) && i == Videogioco.ListaArmi.Count - 1)
+                else if (img.Source.Equals(_immaginiArmi[i].Key) && i == _immaginiArmi.Count - 1)
                 {
-                    img.Source = new BitmapImage(new Uri(Videogioco.ListaArmi[0].PercorsoImmagine, UriKind.Relative));
+                    img.Source = _immaginiArmi[0].Key;
+                    if (img.Name.Contains("1"))
+                    {
+                        _armaP1Selezionata = _immaginiArmi[0].Value;
+                    }
+                    else
+                    {
+                        _armaP2Selezionata = _immaginiArmi[0].Value;
+                    }
                     break;
                 }
             }
@@ -169,30 +257,31 @@ namespace ProgettoGiocoInformatica
             if ((Button)sender == btnProntoP1)
             {
                 //Il giocatore P1 è pronto
-
+                btnPrimaP1.IsEnabled = false;
+                btnDopoP1.IsEnabled = false;
+                btnPrimaArmaP1.IsEnabled = false;
+                btnDopoArmaP1.IsEnabled = false;
                 btnProntoP1.IsEnabled = false;
-                _p1Pronto = true;
             }
             else
             {
                 //Il giocatore P2 è pronto
-
+                btnPrimaP2.IsEnabled = false;
+                btnDopoP2.IsEnabled = false;
+                btnPrimaArmaP2.IsEnabled = false;
+                btnDopoArmaP2.IsEnabled = false;
                 btnProntoP2.IsEnabled = false;
-                _p2Pronto = true;
             }
 
-            if (_p2Pronto && _p1Pronto)
+            if (!btnProntoP1.IsEnabled && !btnProntoP2.IsEnabled)
             {
                 //Tutti e due i personaggi sono pronti
-                CombattimentoClasse cl = new CombattimentoClasse(new Personaggio(), new Personaggio(), new Arma(), new Arma());
+                CombattimentoClasse classeCombattimento = new CombattimentoClasse(_p1Selezionato, _p2Selezionato, _armaP1Selezionata, _armaP2Selezionata);
 
-                Combattimento c = new Combattimento(cl);
-
-                c.Show();
+                Combattimento combattimento = new Combattimento(classeCombattimento);
+                combattimento.Show();
                 this.Close();
             }
-
-
         }
 
         private void btnOpzioni_Click(object sender, RoutedEventArgs e)

@@ -15,18 +15,16 @@ namespace ProgettoGiocoInformatica
         private string _nome;
         private int _puntiVita;
         private string _percorsoImmagine;
-        private List<Arma> _listaArmi;
         private List<Animazione> _listaAnimazioni;
         private int _puntiForzaBase;
         private bool _salta, _sinistra, _destra;
         private int _velocitaSalto, _gravita, _velocitaPersonaggio;
 
-        public Personaggio(string nome, int puntiVita, string percorsoImmagine, List<Arma> listaArmi, List<Animazione> listaAnimazioni, int puntiForzaBase)
+        public Personaggio(string nome, int puntiVita, string percorsoImmagine, List<Animazione> listaAnimazioni, int puntiForzaBase)
         {
             Nome = nome;
             PuntiVita = puntiVita;
             PercorsoImmagine = percorsoImmagine;
-            ListaArmi = listaArmi;
             ListaAnimazioni = listaAnimazioni;
             PuntiForzaBase = puntiForzaBase;
             Salta = false;
@@ -81,19 +79,6 @@ namespace ProgettoGiocoInformatica
             set
             {
                 _puntiVita = value;
-            }
-        }
-
-        [XmlElement(ElementName = "ListaArmi")]
-        public List<Arma> ListaArmi
-        {
-            get
-            {
-                return _listaArmi;
-            }
-            set
-            {
-
             }
         }
 
