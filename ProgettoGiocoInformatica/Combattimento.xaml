@@ -9,11 +9,27 @@
     <Canvas x:Name="canvasCombattimento" KeyDown="TastoPremuto" KeyUp="TastoLasciato" Focusable="True" >
         <Button x:Name="BtnGiocaAncora" Content="Gioca ancora" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Height="60" FontSize="16" Click="BtnGiocaAncora_Click" Visibility="Hidden" Canvas.Left="335" Canvas.Top="240"/>
         <Button x:Name="BtnHome" Content="Home" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Height="60" FontSize="16" Click="BtnHome_Click" Visibility="Hidden" Canvas.Left="335" Canvas.Top="111"/>
-        
-        <Image x:Name="imgPersonaggio2"  Canvas.Left="393" Canvas.Top="200" Height="68" Width="71" Source="p2.jpg"/>
+        <StackPanel x:Name="stackPanelP1" Canvas.Left="22" Orientation="Vertical" Canvas.Top="170" Width="71">
+            <Label x:Name="lblP1" Content="P1" Margin="24,0"/>
+            <Image x:Name="imgPersonaggio1" Height="68"/>
+        </StackPanel>
+        <StackPanel x:Name="stackPanelP2" Canvas.Left="393" Orientation="Vertical" Canvas.Top="170" Width="71">
+            <Label x:Name="lblP2" Content="P2" Margin="24,0"/>
+            <Image x:Name="imgPersonaggio2" Height="68"/>
+        </StackPanel>
         <Image x:Name="imgPavimento" Height="53" Width="517" Canvas.Top="266" Canvas.Left="0"/>
-        <Image x:Name="imgPersonaggio1" Canvas.Left="24" Canvas.Top="200" Height="68" Width="71" Source="p1.jpg" />
 
-        
+        <ProgressBar x:Name="progressBarP1" Height="29" Canvas.Left="10" Canvas.Top="10" Width="200" Background="Red"/>
+
+        <ProgressBar x:Name="progressBarP2" Height="29" Canvas.Left="299" Canvas.Top="10" Width="200" RenderTransformOrigin="0.5,0.5" Background="#FFF00909">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
     </Canvas>
 </Window>

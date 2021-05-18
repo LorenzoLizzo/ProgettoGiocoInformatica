@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace ProgettoGiocoInformatica
@@ -34,21 +33,25 @@ namespace ProgettoGiocoInformatica
         public Combattimento(CombattimentoClasse cl)
         {
             ClasseCombattimento = cl;
+            p1 = cl.P1;
+            p2 = cl.P2;
 
             InitializeComponent();
+            ImpostaCombattimento();
             canvasCombattimento.Focus();
-            p1 = new Personaggio();
-            p2 = new Personaggio();
-            SetImpostazioniP1();
-            SetImpostazioniP2();
         }
 
-        public Combattimento()
+        private void ImpostaCombattimento()
         {
-            InitializeComponent();
-            canvasCombattimento.Focus();
-            p1 = new Personaggio();
-            p2 = new Personaggio();
+            imgPersonaggio1.Source = new BitmapImage(new Uri(p1.PercorsoImmagine, UriKind.Relative));
+            imgPersonaggio2.Source = new BitmapImage(new Uri(p2.PercorsoImmagine, UriKind.Relative));
+
+            progressBarP1.Maximum = p1.PuntiVita;
+            progressBarP1.Value = progressBarP1.Maximum;
+
+            progressBarP2.Maximum = p2.PuntiVita;
+            progressBarP2.Value = progressBarP2.Maximum;
+
             SetImpostazioniP1();
             SetImpostazioniP2();
         }

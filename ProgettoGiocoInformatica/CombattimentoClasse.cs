@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
-using System.Xml.Serialization;
 using System.Windows.Controls;
 
 namespace ProgettoGiocoInformatica
@@ -24,16 +23,6 @@ namespace ProgettoGiocoInformatica
             P2 = p2;
             ArmaP1 = armaP1;
             ArmaP2 = armaP2;
-        }
-
-        public CombattimentoClasse()
-        {
-
-        }
-
-        public CombattimentoClasse(Personaggio p1)
-        {
-            P1 = p1;
         }
 
         public Personaggio P1
@@ -95,7 +84,6 @@ namespace ProgettoGiocoInformatica
                 _vincitore = value;
             }
         }
-
 
         public void AttacoP1()
         {
