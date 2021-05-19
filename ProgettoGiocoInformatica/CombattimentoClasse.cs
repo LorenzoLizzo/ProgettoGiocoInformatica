@@ -85,14 +85,16 @@ namespace ProgettoGiocoInformatica
             }
         }
 
-        public void AttacoP1()
+        public int AttaccoP1()
         {
-
+            TogliVita(P2);
+            return CalcolaDanno(P1);
         }
 
-        public void AttaccoP2()
+        public int AttaccoP2()
         {
-
+            TogliVita(P1);
+            return CalcolaDanno(P2);
         }
 
         private int CalcolaDanno(Personaggio personaggioCheColpisce)

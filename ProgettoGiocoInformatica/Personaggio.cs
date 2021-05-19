@@ -17,7 +17,7 @@ namespace ProgettoGiocoInformatica
         private string _percorsoImmagine;
         private List<Animazione> _listaAnimazioni;
         private int _puntiForzaBase;
-        private bool _salta, _sinistra, _destra;
+        private bool _salta, _sinistra, _destra, _attacca;
         private int _velocitaSalto, _gravita, _velocitaPersonaggio;
 
         public Personaggio(string nome, int puntiVita, string percorsoImmagine, List<Animazione> listaAnimazioni, int puntiForzaBase)
@@ -30,6 +30,7 @@ namespace ProgettoGiocoInformatica
             Salta = false;
             Sinistra = false;
             Destra = false;
+            Attacca = false;
         }
 
         public Personaggio()
@@ -41,6 +42,7 @@ namespace ProgettoGiocoInformatica
             Salta = false;
             Sinistra = false;
             Destra = false;
+            Attacca = false;
         }
 
         [XmlElement(ElementName = "Nome")]
@@ -121,6 +123,19 @@ namespace ProgettoGiocoInformatica
         }
 
         [XmlIgnore]
+        public bool Attacca
+        {
+            get
+            {
+                return _attacca;
+            }
+            set
+            {
+                _attacca = value;
+            }
+        }
+
+        [XmlIgnore]
         public bool Sinistra
         {
             get
@@ -184,6 +199,8 @@ namespace ProgettoGiocoInformatica
                 _velocitaPersonaggio = value;
             }
         }
+
+      
 
         public bool Equals(Personaggio other)
         {

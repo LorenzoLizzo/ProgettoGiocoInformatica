@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Threading.Tasks;
 using System.Threading;
 
 namespace ProgettoGiocoInformatica
@@ -86,8 +85,10 @@ namespace ProgettoGiocoInformatica
                         {
                             p1.Salta = false;
                         }
+
+                        giocatore1HitBox = new Rect(new Size(imgPersonaggio1.Width, imgPersonaggio1.Height));
                     }));
-                    Thread.Sleep(10);
+                    Thread.Sleep(18);
                 }
 
             });
@@ -121,9 +122,58 @@ namespace ProgettoGiocoInformatica
                         {
                             p2.Salta = false;
                         }
+                        giocatore2HitBox = new Rect(new Size(imgPersonaggio2.Width, imgPersonaggio2.Height));
                     }));
-                    Thread.Sleep(10);
+                    Thread.Sleep(18);
                 }
+            });
+        }
+
+        private async void AttaccoP1()
+        {
+            await Task.Run(() =>
+            {
+                while (true)
+                {
+                    /*
+                    this.Dispatcher.BeginInvoke(new Action(() => {
+                       
+                    }));
+                    */
+                    if (p1.Attacca && giocatore1HitBox.IntersectsWith(giocatore2HitBox))
+                    {
+                        int danno = ClasseCombattimento.AttaccoP1();
+                        this.Dispatcher.BeginInvoke(new Action(() => {
+                            progressBarP1.Value -= danno;
+                        }));
+                    }
+                    Thread.Sleep(1);
+                }
+
+            });
+        }
+
+        private async void AttaccoP2()
+        {
+            await Task.Run(() =>
+            {
+                while (true)
+                {
+                    /*
+                    this.Dispatcher.BeginInvoke(new Action(() => {
+                       
+                    }));
+                    */
+                    if (p2.Attacca && giocatore2HitBox.IntersectsWith(giocatore1HitBox))
+                    {
+                        int danno = ClasseCombattimento.AttaccoP2();
+                        this.Dispatcher.BeginInvoke(new Action(() => {
+                            progressBarP2.Value -= danno;
+                        }));
+                    }
+                    Thread.Sleep(1);
+                }
+
             });
         }
 
@@ -142,6 +192,10 @@ namespace ProgettoGiocoInformatica
             {
                 p1.Salta = true;
             }
+            if(e.Key == Key.S && !p1.Attacca)
+            {
+                p1.Attacca = true;
+            }
             //tasti p2
             if (e.Key == Key.Left)
             {
@@ -154,6 +208,10 @@ namespace ProgettoGiocoInformatica
             if (e.Key == Key.Up && !p2.Salta)
             {
                 p2.Salta = true;
+            }
+            if (e.Key == Key.Down && !p2.Attacca)
+            {
+                p2.Attacca = true;
             }
         }
 
@@ -173,6 +231,10 @@ namespace ProgettoGiocoInformatica
                 p1.Salta = false;
                 p1.Gravita = 10;
             }
+            if (p1.Attacca)
+            {
+                p1.Attacca = false;
+            }
             //tasti p2
             if (e.Key == Key.Left)
             {
@@ -186,6 +248,10 @@ namespace ProgettoGiocoInformatica
             {
                 p2.Salta = false;
                 p2.Gravita = 10;
+            }
+            if (p2.Attacca)
+            {
+                p2.Attacca = false;
             }
         }
 
