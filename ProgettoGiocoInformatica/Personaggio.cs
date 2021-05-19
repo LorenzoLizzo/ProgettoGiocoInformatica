@@ -34,7 +34,7 @@ namespace ProgettoGiocoInformatica
 
         public Personaggio()
         {
-            VelocitaSalto = 8;
+            VelocitaSalto = 12;
             Gravita = 10;
             VelocitaPersonaggio = 8;
 

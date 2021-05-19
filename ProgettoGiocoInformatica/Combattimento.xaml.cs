@@ -10,7 +10,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Threading;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace ProgettoGiocoInformatica
 {
@@ -22,8 +23,6 @@ namespace ProgettoGiocoInformatica
         private CombattimentoClasse ClasseCombattimento { get; set; }
         private Videogioco Videogioco { get; set; }
 
-        DispatcherTimer timerP1;
-        DispatcherTimer timerP2;
         Personaggio p1;
         Personaggio p2;
 
@@ -52,135 +51,80 @@ namespace ProgettoGiocoInformatica
             progressBarP2.Maximum = p2.PuntiVita;
             progressBarP2.Value = progressBarP2.Maximum;
 
-            SetImpostazioniP1();
-            SetImpostazioniP2();
+            MovimentoP1();
+            MovimentoP2();
         }
 
-        private void SetImpostazioniP1()
+        private async void MovimentoP1()
         {
-            timerP1 = new DispatcherTimer();
-            timerP1.Tick += new EventHandler(MetodoTimerP1);
-            timerP1.Interval = TimeSpan.FromMilliseconds(10);
-            timerP1.Start();
-        }
-
-        private void SetImpostazioniP2()
-        {
-            timerP2 = new DispatcherTimer();
-            timerP2.Tick += new EventHandler(MetodoTimerP2);
-            timerP2.Interval = TimeSpan.FromMilliseconds(10);
-            timerP2.Start();
-        }
-
-        private void MetodoTimerP1(object sender, EventArgs e)
-        {
-            /*
             await Task.Run(() =>
             {
-                
-                this.Dispatcher.BeginInvoke(new Action(() => {
-                    giocatore1HitBox = new Rect(Canvas.GetLeft(imgPersonaggio1), Canvas.GetTop(imgPersonaggio1), imgPersonaggio1.Width - 15, imgPersonaggio1.Height);
-                    if (p1.Sinistra && Canvas.GetLeft(imgPersonaggio1) > 5)
-                    {
-                        Canvas.SetLeft(imgPersonaggio1, Canvas.GetLeft(imgPersonaggio1) - p1.VelocitaPersonaggio);
-                    }
-                    if (p1.Destra && Canvas.GetLeft(imgPersonaggio1) + (imgPersonaggio1.Width + 20) < Application.Current.MainWindow.Width)
-                    {
-                        Canvas.SetLeft(imgPersonaggio1, Canvas.GetLeft(imgPersonaggio1) + p1.VelocitaPersonaggio);
-                    }
-                    if (p1.Salta && Canvas.GetTop(imgPersonaggio1) <= 200 && p1.Gravita > 0)
-                    {
-                        Canvas.SetTop(imgPersonaggio1, Canvas.GetTop(imgPersonaggio1) - p1.VelocitaSalto);
-                        p1.Gravita -= 1;
-                    }
-                    else if (Canvas.GetTop(imgPersonaggio1) < 200)
-                    {
-                        Canvas.SetTop(imgPersonaggio1, Canvas.GetTop(imgPersonaggio1) + p1.VelocitaSalto);
-                    }
-                }));
-                */
-            giocatore1HitBox = new Rect(Canvas.GetLeft(imgPersonaggio1), Canvas.GetTop(imgPersonaggio1), imgPersonaggio1.Width - 15, imgPersonaggio1.Height);
+                while (true)
+                {
+                    this.Dispatcher.BeginInvoke(new Action(() => {
+                        if (p1.Sinistra && Canvas.GetLeft(stackPanelP1) > 5)
+                        {
+                            Canvas.SetLeft(stackPanelP1, Canvas.GetLeft(stackPanelP1) - p1.VelocitaPersonaggio);
+                        }
+                        if (p1.Destra && Canvas.GetLeft(stackPanelP1) + (stackPanelP1.Width + 20) < Application.Current.MainWindow.Width)
+                        {
+                            Canvas.SetLeft(stackPanelP1, Canvas.GetLeft(stackPanelP1) + p1.VelocitaPersonaggio);
+                        }
 
-            if (p1.Sinistra && Canvas.GetLeft(imgPersonaggio1) > 5)
-            {
-                Canvas.SetLeft(imgPersonaggio1, Canvas.GetLeft(imgPersonaggio1) - p1.VelocitaPersonaggio);
-            }
-            if (p1.Destra && Canvas.GetLeft(imgPersonaggio1) + (imgPersonaggio1.Width + 20) < Application.Current.MainWindow.Width)
-            {
-                Canvas.SetLeft(imgPersonaggio1, Canvas.GetLeft(imgPersonaggio1) + p1.VelocitaPersonaggio);
-            }
+                        if (p1.Salta && Canvas.GetTop(stackPanelP1) <= 170 && p1.Gravita > 0)
+                        {
+                            Canvas.SetTop(stackPanelP1, Canvas.GetTop(stackPanelP1) - p1.VelocitaSalto);
 
-            if (p1.Salta && Canvas.GetTop(imgPersonaggio1) <= 200 && p1.Gravita > 0)
-            {
-                Canvas.SetTop(imgPersonaggio1, Canvas.GetTop(imgPersonaggio1) - p1.VelocitaSalto);
+                            p1.Gravita -= 1;
+                        }
+                        else if (Canvas.GetTop(stackPanelP1) < 170)
+                        {
+                            Canvas.SetTop(stackPanelP1, Canvas.GetTop(stackPanelP1) + p1.VelocitaSalto);
+                        }
 
-                p1.Gravita -= 1;
-            }
-            else if (Canvas.GetTop(imgPersonaggio1) < 200)
-            {
-                Canvas.SetTop(imgPersonaggio1, Canvas.GetTop(imgPersonaggio1) + p1.VelocitaSalto);
-            }
+                        if (p1.Gravita < 0)
+                        {
+                            p1.Salta = false;
+                        }
+                    }));
+                    Thread.Sleep(10);
+                }
 
-            if (p1.Gravita < 0)
-            {
-                p1.Salta = false;
-            }
-            //  });
-
+            });
         }
 
-        private void MetodoTimerP2(object sender, EventArgs e)
+        private async void MovimentoP2()
         {
-            /*
             await Task.Run(() =>
             {
-                Canvas.SetLeft(imgPersonaggio1, Canvas.GetLeft(imgPersonaggio1) - velocitaGiocatore);
-                this.Dispatcher.BeginInvoke(new Action(() => {
-                    giocatore2HitBox = new Rect(Canvas.GetLeft(imgPersonaggio2), Canvas.GetTop(imgPersonaggio2), imgPersonaggio2.Width - 15, imgPersonaggio2.Height);
-                    if (p2.Sinistra && Canvas.GetLeft(imgPersonaggio2) > 5)
-                    {
-                        Canvas.SetLeft(imgPersonaggio2, Canvas.GetLeft(imgPersonaggio2) - p2.VelocitaPersonaggio);
-                    }
-                    if (p2.Destra && Canvas.GetLeft(imgPersonaggio2) + (imgPersonaggio2.Width + 20) < Application.Current.MainWindow.Width)
-                    {
-                        Canvas.SetLeft(imgPersonaggio2, Canvas.GetLeft(imgPersonaggio2) + p2.VelocitaPersonaggio);
-                    }
-                    if (p2.Salta && Canvas.GetTop(imgPersonaggio2) <= 200 && p2.Gravita > 0)
-                    {
-                        Canvas.SetTop(imgPersonaggio2, Canvas.GetTop(imgPersonaggio2) - p2.VelocitaSalto);
-                        p2.Gravita -= 1;
-                    }
-                    else if (Canvas.GetTop(imgPersonaggio2) < 200)
-                    {
-                        Canvas.SetTop(imgPersonaggio2, Canvas.GetTop(imgPersonaggio2) + p2.VelocitaSalto);
-                    }
-                }));
-                */
-
-            giocatore2HitBox = new Rect(Canvas.GetLeft(imgPersonaggio2), Canvas.GetTop(imgPersonaggio2), imgPersonaggio2.Width - 15, imgPersonaggio2.Height);
-
-            if (p2.Sinistra && Canvas.GetLeft(imgPersonaggio2) > 5)
-            {
-                Canvas.SetLeft(imgPersonaggio2, Canvas.GetLeft(imgPersonaggio2) - p2.VelocitaPersonaggio);
-            }
-            if (p2.Destra && Canvas.GetLeft(imgPersonaggio2) + (imgPersonaggio2.Width + 20) < Application.Current.MainWindow.Width)
-            {
-                Canvas.SetLeft(imgPersonaggio2, Canvas.GetLeft(imgPersonaggio2) + p2.VelocitaPersonaggio);
-            }
-            if (p2.Salta && Canvas.GetTop(imgPersonaggio2) <= 200 && p2.Gravita > 0)
-            {
-                Canvas.SetTop(imgPersonaggio2, Canvas.GetTop(imgPersonaggio2) - p2.VelocitaSalto);
-                p2.Gravita -= 1;
-            }
-            else if (Canvas.GetTop(imgPersonaggio2) < 200)
-            {
-                Canvas.SetTop(imgPersonaggio2, Canvas.GetTop(imgPersonaggio2) + p2.VelocitaSalto);
-            }
-            if (p2.Gravita < 0)
-            {
-                p2.Salta = false;
-            }
-            // });
+                while (true)
+                {
+                    this.Dispatcher.BeginInvoke(new Action(() => {
+                        if (p2.Sinistra && Canvas.GetLeft(stackPanelP2) > 5)
+                        {
+                            Canvas.SetLeft(stackPanelP2, Canvas.GetLeft(stackPanelP2) - p2.VelocitaPersonaggio);
+                        }
+                        if (p2.Destra && Canvas.GetLeft(stackPanelP2) + (stackPanelP2.Width + 20) < Application.Current.MainWindow.Width)
+                        {
+                            Canvas.SetLeft(stackPanelP2, Canvas.GetLeft(stackPanelP2) + p2.VelocitaPersonaggio);
+                        }
+                        if (p2.Salta && Canvas.GetTop(stackPanelP2) <= 170 && p2.Gravita > 0)
+                        {
+                            Canvas.SetTop(stackPanelP2, Canvas.GetTop(stackPanelP2) - p2.VelocitaSalto);
+                            p2.Gravita -= 1;
+                        }
+                        else if (Canvas.GetTop(stackPanelP2) < 170)
+                        {
+                            Canvas.SetTop(stackPanelP2, Canvas.GetTop(stackPanelP2) + p2.VelocitaSalto);
+                        }
+                        if (p2.Gravita < 0)
+                        {
+                            p2.Salta = false;
+                        }
+                    }));
+                    Thread.Sleep(10);
+                }
+            });
         }
 
         private void TastoPremuto(object sender, KeyEventArgs e)
