@@ -205,6 +205,14 @@ namespace ProgettoGiocoInformatica
                         _p1Selezionato = _immaginiPersonaggi[i].Value;
                     }
                 }
+
+                for (int i = 0; i < _immaginiArmi.Count; i++)
+                {
+                    if (imgArmaPersonaggioP1.Source.Equals(_immaginiArmi[i].Key))
+                    {
+                        _armaP1Selezionata = _immaginiArmi[i].Value;
+                    }
+                }
             }
             else
             {
@@ -220,6 +228,14 @@ namespace ProgettoGiocoInformatica
                     if (imgPersonaggioP2.Source.Equals(_immaginiPersonaggi[i].Key))
                     {
                         _p2Selezionato = _immaginiPersonaggi[i].Value;
+                    }
+                }
+
+                for (int i = 0; i < _immaginiArmi.Count; i++)
+                {
+                    if (imgArmaPersonaggioP2.Source.Equals(_immaginiArmi[i].Key))
+                    {
+                        _armaP2Selezionata = _immaginiArmi[i].Value;
                     }
                 }
             }

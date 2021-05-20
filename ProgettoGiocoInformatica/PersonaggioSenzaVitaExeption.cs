@@ -8,20 +8,14 @@ namespace ProgettoGiocoInformatica
 {
     class PersonaggioSenzaVitaException : Exception
     {
-        public Personaggio Interessato
+        public Personaggio Vincitore
         {
             get; private set;
         }
 
-        public int QuantitativoPerso
+        public PersonaggioSenzaVitaException(Personaggio p) : base()
         {
-            get; private set;
-        }
-
-        public PersonaggioSenzaVitaException(Personaggio p, int q) : base()
-        {
-            Interessato = p;
-            QuantitativoPerso = q;
+            Vincitore = p;
         }
     }
 }

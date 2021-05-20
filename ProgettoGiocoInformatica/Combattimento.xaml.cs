@@ -22,8 +22,6 @@ namespace ProgettoGiocoInformatica
         private CombattimentoClasse ClasseCombattimento { get; set; }
         private Videogioco Videogioco { get; set; }
 
-        Personaggio p1;
-        Personaggio p2;
 
         Rect giocatore1HitBox;
         Rect giocatore2HitBox;
@@ -31,8 +29,6 @@ namespace ProgettoGiocoInformatica
         public Combattimento(CombattimentoClasse cl)
         {
             ClasseCombattimento = cl;
-            p1 = cl.P1;
-            p2 = cl.P2;
 
             InitializeComponent();
             ImpostaCombattimento();
@@ -41,17 +37,19 @@ namespace ProgettoGiocoInformatica
 
         private void ImpostaCombattimento()
         {
-            imgPersonaggio1.Source = new BitmapImage(new Uri(p1.PercorsoImmagine, UriKind.Relative));
-            imgPersonaggio2.Source = new BitmapImage(new Uri(p2.PercorsoImmagine, UriKind.Relative));
+            imgPersonaggio1.Source = new BitmapImage(new Uri(ClasseCombattimento.P1.PercorsoImmagine, UriKind.Relative));
+            imgPersonaggio2.Source = new BitmapImage(new Uri(ClasseCombattimento.P2.PercorsoImmagine, UriKind.Relative));
 
-            progressBarP1.Maximum = p1.PuntiVita;
-            progressBarP1.Value = progressBarP1.Maximum;
+            progressBarP1.Maximum = ClasseCombattimento.P1.PuntiVita;
+            progressBarP1.Value = ClasseCombattimento.P1.PuntiVita;
 
-            progressBarP2.Maximum = p2.PuntiVita;
-            progressBarP2.Value = progressBarP2.Maximum;
+            progressBarP2.Maximum = ClasseCombattimento.P2.PuntiVita;
+            progressBarP2.Value = ClasseCombattimento.P2.PuntiVita;
 
             MovimentoP1();
             MovimentoP2();
+            AttaccoP1();
+            AttaccoP2();
         }
 
         private async void MovimentoP1()
@@ -61,32 +59,32 @@ namespace ProgettoGiocoInformatica
                 while (true)
                 {
                     this.Dispatcher.BeginInvoke(new Action(() => {
-                        if (p1.Sinistra && Canvas.GetLeft(stackPanelP1) > 5)
+                        if (ClasseCombattimento.P1.Sinistra && Canvas.GetLeft(stackPanelP1) > 5)
                         {
-                            Canvas.SetLeft(stackPanelP1, Canvas.GetLeft(stackPanelP1) - p1.VelocitaPersonaggio);
+                            Canvas.SetLeft(stackPanelP1, Canvas.GetLeft(stackPanelP1) - ClasseCombattimento.P1.VelocitaPersonaggio);
                         }
-                        if (p1.Destra && Canvas.GetLeft(stackPanelP1) + (stackPanelP1.Width + 20) < Application.Current.MainWindow.Width)
+                        if (ClasseCombattimento.P1.Destra && Canvas.GetLeft(stackPanelP1) + (stackPanelP1.Width + 20) < Application.Current.MainWindow.Width)
                         {
-                            Canvas.SetLeft(stackPanelP1, Canvas.GetLeft(stackPanelP1) + p1.VelocitaPersonaggio);
+                            Canvas.SetLeft(stackPanelP1, Canvas.GetLeft(stackPanelP1) + ClasseCombattimento.P1.VelocitaPersonaggio);
                         }
 
-                        if (p1.Salta && Canvas.GetTop(stackPanelP1) <= 170 && p1.Gravita > 0)
+                        if (ClasseCombattimento.P1.Salta && Canvas.GetTop(stackPanelP1) <= 170 && ClasseCombattimento.P1.Gravita > 0)
                         {
-                            Canvas.SetTop(stackPanelP1, Canvas.GetTop(stackPanelP1) - p1.VelocitaSalto);
+                            Canvas.SetTop(stackPanelP1, Canvas.GetTop(stackPanelP1) - ClasseCombattimento.P1.VelocitaSalto);
 
-                            p1.Gravita -= 1;
+                            ClasseCombattimento.P1.Gravita -= 1;
                         }
                         else if (Canvas.GetTop(stackPanelP1) < 170)
                         {
-                            Canvas.SetTop(stackPanelP1, Canvas.GetTop(stackPanelP1) + p1.VelocitaSalto);
+                            Canvas.SetTop(stackPanelP1, Canvas.GetTop(stackPanelP1) + ClasseCombattimento.P1.VelocitaSalto);
                         }
 
-                        if (p1.Gravita < 0)
+                        if (ClasseCombattimento.P1.Gravita < 0)
                         {
-                            p1.Salta = false;
+                            ClasseCombattimento.P1.Salta = false;
                         }
 
-                        giocatore1HitBox = new Rect(new Size(imgPersonaggio1.Width, imgPersonaggio1.Height));
+                        giocatore1HitBox = new Rect(Canvas.GetLeft(stackPanelP1), Canvas.GetTop(stackPanelP1), stackPanelP1.Width, stackPanelP1.Height);
                     }));
                     Thread.Sleep(18);
                 }
@@ -101,28 +99,28 @@ namespace ProgettoGiocoInformatica
                 while (true)
                 {
                     this.Dispatcher.BeginInvoke(new Action(() => {
-                        if (p2.Sinistra && Canvas.GetLeft(stackPanelP2) > 5)
+                        if (ClasseCombattimento.P2.Sinistra && Canvas.GetLeft(stackPanelP2) > 5)
                         {
-                            Canvas.SetLeft(stackPanelP2, Canvas.GetLeft(stackPanelP2) - p2.VelocitaPersonaggio);
+                            Canvas.SetLeft(stackPanelP2, Canvas.GetLeft(stackPanelP2) - ClasseCombattimento.P2.VelocitaPersonaggio);
                         }
-                        if (p2.Destra && Canvas.GetLeft(stackPanelP2) + (stackPanelP2.Width + 20) < Application.Current.MainWindow.Width)
+                        if (ClasseCombattimento.P2.Destra && Canvas.GetLeft(stackPanelP2) + (stackPanelP2.Width + 20) < Application.Current.MainWindow.Width)
                         {
-                            Canvas.SetLeft(stackPanelP2, Canvas.GetLeft(stackPanelP2) + p2.VelocitaPersonaggio);
+                            Canvas.SetLeft(stackPanelP2, Canvas.GetLeft(stackPanelP2) + ClasseCombattimento.P2.VelocitaPersonaggio);
                         }
-                        if (p2.Salta && Canvas.GetTop(stackPanelP2) <= 170 && p2.Gravita > 0)
+                        if (ClasseCombattimento.P2.Salta && Canvas.GetTop(stackPanelP2) <= 170 && ClasseCombattimento.P2.Gravita > 0)
                         {
-                            Canvas.SetTop(stackPanelP2, Canvas.GetTop(stackPanelP2) - p2.VelocitaSalto);
-                            p2.Gravita -= 1;
+                            Canvas.SetTop(stackPanelP2, Canvas.GetTop(stackPanelP2) - ClasseCombattimento.P2.VelocitaSalto);
+                            ClasseCombattimento.P2.Gravita -= 1;
                         }
                         else if (Canvas.GetTop(stackPanelP2) < 170)
                         {
-                            Canvas.SetTop(stackPanelP2, Canvas.GetTop(stackPanelP2) + p2.VelocitaSalto);
+                            Canvas.SetTop(stackPanelP2, Canvas.GetTop(stackPanelP2) + ClasseCombattimento.P2.VelocitaSalto);
                         }
-                        if (p2.Gravita < 0)
+                        if (ClasseCombattimento.P2.Gravita < 0)
                         {
-                            p2.Salta = false;
+                            ClasseCombattimento.P2.Salta = false;
                         }
-                        giocatore2HitBox = new Rect(new Size(imgPersonaggio2.Width, imgPersonaggio2.Height));
+                        giocatore2HitBox = new Rect(Canvas.GetLeft(stackPanelP2), Canvas.GetTop(stackPanelP2), stackPanelP2.Width, stackPanelP2.Height);
                     }));
                     Thread.Sleep(18);
                 }
@@ -133,23 +131,40 @@ namespace ProgettoGiocoInformatica
         {
             await Task.Run(() =>
             {
-                while (true)
+                try
                 {
-                    /*
-                    this.Dispatcher.BeginInvoke(new Action(() => {
-                       
-                    }));
-                    */
-                    if (p1.Attacca && giocatore1HitBox.IntersectsWith(giocatore2HitBox))
+                    while (true)
                     {
-                        int danno = ClasseCombattimento.AttaccoP1();
-                        this.Dispatcher.BeginInvoke(new Action(() => {
-                            progressBarP1.Value -= danno;
-                        }));
-                    }
-                    Thread.Sleep(1);
-                }
+                        double posp1Left = giocatore1HitBox.Left;
+                        double posp1Top = giocatore1HitBox.Top;
 
+                        double posp2Left = giocatore2HitBox.Left;
+                        double posp2Top = giocatore2HitBox.Top;
+                        
+                        if (ClasseCombattimento.P1.Attacca && Math.Abs(posp2Left - posp1Left) < 30 && Math.Abs(posp1Top - posp2Top) < 10)
+                        {
+                            int danno = ClasseCombattimento.AttaccoP1();
+                            
+                            this.Dispatcher.BeginInvoke(new Action(() =>
+                            {
+                                 progressBarP2.Value -= danno;
+                            }));
+                            
+
+                            ClasseCombattimento.P1.Attacca = false;
+                        }
+                        Thread.Sleep(1);
+                    }
+                }
+                catch(PersonaggioSenzaVitaException ex)
+                {
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        progressBarP2.Value = 0;
+                        canvasCombattimento.Focusable = false;
+                    }));
+                    MessageBox.Show(ex.Vincitore.Nome);
+                }
             });
         }
 
@@ -157,23 +172,39 @@ namespace ProgettoGiocoInformatica
         {
             await Task.Run(() =>
             {
-                while (true)
+                try
                 {
-                    /*
-                    this.Dispatcher.BeginInvoke(new Action(() => {
-                       
-                    }));
-                    */
-                    if (p2.Attacca && giocatore2HitBox.IntersectsWith(giocatore1HitBox))
+                    while (true)
                     {
-                        int danno = ClasseCombattimento.AttaccoP2();
-                        this.Dispatcher.BeginInvoke(new Action(() => {
-                            progressBarP2.Value -= danno;
-                        }));
-                    }
-                    Thread.Sleep(1);
-                }
+                        double posp1Left = giocatore1HitBox.Left;
+                        double posp1Top = giocatore1HitBox.Top;
 
+                        double posp2Left = giocatore2HitBox.Left;
+                        double posp2Top = giocatore2HitBox.Top;
+
+                        if (ClasseCombattimento.P2.Attacca && Math.Abs(posp2Left - posp1Left) < 30 && Math.Abs(posp1Top - posp2Top) < 10)
+                        {
+                            int danno = ClasseCombattimento.AttaccoP2();
+
+                            this.Dispatcher.BeginInvoke(new Action(() =>
+                            {
+                                progressBarP1.Value -= danno;
+                            }));
+
+                            ClasseCombattimento.P2.Attacca = false;
+                        }
+                        Thread.Sleep(1);
+                    }
+                }
+                catch (PersonaggioSenzaVitaException ex)
+                {
+                    this.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        progressBarP1.Value = 0;
+                        canvasCombattimento.Focusable = false;
+                    }));
+                    MessageBox.Show(ex.Vincitore.Nome);
+                }
             });
         }
 
@@ -182,36 +213,36 @@ namespace ProgettoGiocoInformatica
             //tasti p1
             if (e.Key == Key.A)
             {
-                p1.Sinistra = true;
+                ClasseCombattimento.P1.Sinistra = true;
             }
             if (e.Key == Key.D)
             {
-                p1.Destra = true;
+                ClasseCombattimento.P1.Destra = true;
             }
-            if (e.Key == Key.W && !p1.Salta)
+            if (e.Key == Key.W && !ClasseCombattimento.P1.Salta)
             {
-                p1.Salta = true;
+                ClasseCombattimento.P1.Salta = true;
             }
-            if(e.Key == Key.S && !p1.Attacca)
+            if(e.Key == Key.S && !ClasseCombattimento.P1.Attacca)
             {
-                p1.Attacca = true;
+                ClasseCombattimento.P1.Attacca = true;
             }
             //tasti p2
             if (e.Key == Key.Left)
             {
-                p2.Sinistra = true;
+                ClasseCombattimento.P2.Sinistra = true;
             }
             if (e.Key == Key.Right)
             {
-                p2.Destra = true;
+                ClasseCombattimento.P2.Destra = true;
             }
-            if (e.Key == Key.Up && !p2.Salta)
+            if (e.Key == Key.Up && !ClasseCombattimento.P2.Salta)
             {
-                p2.Salta = true;
+                ClasseCombattimento.P2.Salta = true;
             }
-            if (e.Key == Key.Down && !p2.Attacca)
+            if (e.Key == Key.Down && !ClasseCombattimento.P2.Attacca)
             {
-                p2.Attacca = true;
+                ClasseCombattimento.P2.Attacca = true;
             }
         }
 
@@ -220,38 +251,38 @@ namespace ProgettoGiocoInformatica
             //tasti p1
             if (e.Key == Key.A)
             {
-                p1.Sinistra = false;
+                ClasseCombattimento.P1.Sinistra = false;
             }
             if (e.Key == Key.D)
             {
-                p1.Destra = false;
+                ClasseCombattimento.P1.Destra = false;
             }
-            if (p1.Salta)
+            if (ClasseCombattimento.P1.Salta)
             {
-                p1.Salta = false;
-                p1.Gravita = 10;
+                ClasseCombattimento.P1.Salta = false;
+                ClasseCombattimento.P1.Gravita = 10;
             }
-            if (p1.Attacca)
+            if (ClasseCombattimento.P1.Attacca)
             {
-                p1.Attacca = false;
+                ClasseCombattimento.P1.Attacca = false;
             }
             //tasti p2
             if (e.Key == Key.Left)
             {
-                p2.Sinistra = false;
+                ClasseCombattimento.P2.Sinistra = false;
             }
             if (e.Key == Key.Right)
             {
-                p2.Destra = false;
+                ClasseCombattimento.P2.Destra = false;
             }
-            if (p2.Salta)
+            if (ClasseCombattimento.P2.Salta)
             {
-                p2.Salta = false;
-                p2.Gravita = 10;
+                ClasseCombattimento.P2.Salta = false;
+                ClasseCombattimento.P2.Gravita = 10;
             }
-            if (p2.Attacca)
+            if (ClasseCombattimento.P2.Attacca)
             {
-                p2.Attacca = false;
+                ClasseCombattimento.P2.Attacca = false;
             }
         }
 

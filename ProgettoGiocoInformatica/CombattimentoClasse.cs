@@ -73,34 +73,21 @@ namespace ProgettoGiocoInformatica
             }
         }
 
-        public Personaggio Vincitore
-        {
-            get
-            {
-                return _vincitore;
-            }
-            set
-            {
-                _vincitore = value;
-            }
-        }
-
         public int AttaccoP1()
         {
-            TogliVita(P2);
+            TogliVita(P1);
             return CalcolaDanno(P1);
         }
 
         public int AttaccoP2()
         {
-            TogliVita(P1);
+            TogliVita(P2);
             return CalcolaDanno(P2);
         }
 
         private int CalcolaDanno(Personaggio personaggioCheColpisce)
         {
             int danno;
-
             if (personaggioCheColpisce.Equals(P1))
             {
                 danno = P1.PuntiForzaBase + ArmaP1.Danno;
@@ -113,32 +100,15 @@ namespace ProgettoGiocoInformatica
             return danno;
         }
 
-        private void TogliVita(Personaggio personaggioColpito)
+        private void TogliVita(Personaggio personaggioCheColpisce)
         {
-            int q;
-            if (personaggioColpito.Equals(P1))
-            {
-                q = CalcolaDanno(P2);
-            }
-            else
-            {
-                q = CalcolaDanno(P1);
-            }
+            int q = CalcolaDanno(personaggioCheColpisce);
+            personaggioCheColpisce.PuntiVita -= q;
 
-            if (personaggioColpito.PuntiVita - q <= 0)
+            if (personaggioCheColpisce.PuntiVita <= 0)
             {
-                throw new PersonaggioSenzaVitaException(personaggioColpito, q);
-            }
-
-            personaggioColpito.PuntiVita -= q;
-
-            if (personaggioColpito.Equals(P1))
-            {
-                P1.PuntiVita = personaggioColpito.PuntiVita;
-            }
-            else
-            {
-                P2.PuntiVita = personaggioColpito.PuntiVita;
+                personaggioCheColpisce.PuntiVita = 0;
+                throw new PersonaggioSenzaVitaException(personaggioCheColpisce);
             }
         }
     }
