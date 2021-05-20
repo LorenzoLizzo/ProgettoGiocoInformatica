@@ -20,9 +20,7 @@ namespace ProgettoGiocoInformatica
     public partial class Combattimento : Window
     {
         private CombattimentoClasse ClasseCombattimento { get; set; }
-        private Videogioco Videogioco { get; set; }
-
-
+        
         Rect giocatore1HitBox;
         Rect giocatore2HitBox;
 
@@ -52,11 +50,20 @@ namespace ProgettoGiocoInformatica
             AttaccoP2();
         }
 
+        private void PartitaFinita(string nomeVincitore)
+        {
+            canvasCombattimento.Focusable = false;
+            lblVincitore.Visibility = Visibility.Visible;
+            BtnGiocaAncora.Visibility = Visibility.Visible;
+            BtnHome.Visibility = Visibility.Visible;
+            lblVincitore.Content = $"Il vincitore è: {nomeVincitore}";
+        }
+
         private async void MovimentoP1()
         {
             await Task.Run(() =>
             {
-                while (true)
+                while (!ClasseCombattimento.CombattimentoConcluso)
                 {
                     this.Dispatcher.BeginInvoke(new Action(() => {
                         if (ClasseCombattimento.P1.Sinistra && Canvas.GetLeft(stackPanelP1) > 5)
@@ -96,7 +103,7 @@ namespace ProgettoGiocoInformatica
         {
             await Task.Run(() =>
             {
-                while (true)
+                while (!ClasseCombattimento.CombattimentoConcluso)
                 {
                     this.Dispatcher.BeginInvoke(new Action(() => {
                         if (ClasseCombattimento.P2.Sinistra && Canvas.GetLeft(stackPanelP2) > 5)
@@ -133,7 +140,7 @@ namespace ProgettoGiocoInformatica
             {
                 try
                 {
-                    while (true)
+                    while (!ClasseCombattimento.CombattimentoConcluso)
                     {
                         double posp1Left = giocatore1HitBox.Left;
                         double posp1Top = giocatore1HitBox.Top;
@@ -150,7 +157,6 @@ namespace ProgettoGiocoInformatica
                                  progressBarP2.Value -= danno;
                             }));
                             
-
                             ClasseCombattimento.P1.Attacca = false;
                         }
                         Thread.Sleep(1);
@@ -161,9 +167,8 @@ namespace ProgettoGiocoInformatica
                     this.Dispatcher.BeginInvoke(new Action(() =>
                     {
                         progressBarP2.Value = 0;
-                        canvasCombattimento.Focusable = false;
+                        PartitaFinita(ex.Vincitore.Nome);
                     }));
-                    MessageBox.Show(ex.Vincitore.Nome);
                 }
             });
         }
@@ -174,7 +179,7 @@ namespace ProgettoGiocoInformatica
             {
                 try
                 {
-                    while (true)
+                    while (!ClasseCombattimento.CombattimentoConcluso)
                     {
                         double posp1Left = giocatore1HitBox.Left;
                         double posp1Top = giocatore1HitBox.Top;
@@ -201,9 +206,8 @@ namespace ProgettoGiocoInformatica
                     this.Dispatcher.BeginInvoke(new Action(() =>
                     {
                         progressBarP1.Value = 0;
-                        canvasCombattimento.Focusable = false;
+                        PartitaFinita(ex.Vincitore.Nome);
                     }));
-                    MessageBox.Show(ex.Vincitore.Nome);
                 }
             });
         }
@@ -288,16 +292,35 @@ namespace ProgettoGiocoInformatica
 
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow finestra = new MainWindow();
+            SceltaPersonaggi finestra = new SceltaPersonaggi(new Videogioco());
             finestra.Show();
             this.Close();
         }
 
         private void BtnGiocaAncora_Click(object sender, RoutedEventArgs e)
         {
-            SceltaPersonaggi finestra = new SceltaPersonaggi(Videogioco);
+            Combattimento finestra = new Combattimento(ResetParita());
             finestra.Show();
             this.Close();
+        }
+
+        private CombattimentoClasse ResetParita()
+        {
+            CombattimentoClasse cl = new CombattimentoClasse(ClasseCombattimento.P1, ClasseCombattimento.P2, ClasseCombattimento.ArmaP1, ClasseCombattimento.ArmaP2);
+            cl.P1.PuntiVita = int.Parse(progressBarP1.Maximum.ToString());
+            cl.P2.PuntiVita = int.Parse(progressBarP2.Maximum.ToString());
+            cl.P1.Sinistra = false;
+            cl.P2.Sinistra = false;
+            cl.P1.Destra = false;
+            cl.P2.Destra = false;
+            cl.P1.Salta = false;
+            cl.P2.Salta = false;
+            cl.P1.Attacca = false;
+            cl.P2.Attacca = false;
+            cl.P1.Gravita = 10;
+            cl.P2.Gravita = 10;
+
+            return cl;
         }
     }
 }

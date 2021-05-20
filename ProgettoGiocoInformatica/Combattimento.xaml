@@ -7,8 +7,6 @@
         mc:Ignorable="d"
         Title="Combattimento" Height="350" Width="525" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Canvas x:Name="canvasCombattimento" KeyDown="TastoPremuto" KeyUp="TastoLasciato" Focusable="True" >
-        <Button x:Name="BtnGiocaAncora" Content="Gioca ancora" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Height="60" FontSize="16" Click="BtnGiocaAncora_Click" Visibility="Hidden" Canvas.Left="335" Canvas.Top="240"/>
-        <Button x:Name="BtnHome" Content="Home" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Height="60" FontSize="16" Click="BtnHome_Click" Visibility="Hidden" Canvas.Left="335" Canvas.Top="111"/>
         <StackPanel x:Name="stackPanelP1" Canvas.Left="22" Orientation="Vertical" Canvas.Top="170" Width="71">
             <Label x:Name="lblP1" Content="P1" Margin="24,0"/>
             <Image x:Name="imgPersonaggio1" Height="68"/>
@@ -17,11 +15,11 @@
             <Label x:Name="lblP2" Content="P2" Margin="24,0"/>
             <Image x:Name="imgPersonaggio2" Height="68"/>
         </StackPanel>
-        <Image x:Name="imgPavimento" Height="53" Width="517" Canvas.Top="266" Canvas.Left="0"/>
+        <Image x:Name="imgPavimento" Height="62" Width="519" Canvas.Top="260" Canvas.Left="0" Source=".\Immagini\Pavimenti\pavimento1.png" Stretch="Fill" />
 
-        <ProgressBar x:Name="progressBarP1" Height="29" Canvas.Left="10" Canvas.Top="10" Width="200" Background="Red"/>
+        <ProgressBar x:Name="progressBarP1" Height="29" Canvas.Left="10" Canvas.Top="10" Width="200" Background="Red" Maximum="120"/>
 
-        <ProgressBar x:Name="progressBarP2" Height="29" Canvas.Left="299" Canvas.Top="10" Width="200" RenderTransformOrigin="0.5,0.5" Background="#FFF00909">
+        <ProgressBar x:Name="progressBarP2" Height="29" Canvas.Left="299" Canvas.Top="10" Width="200" RenderTransformOrigin="0.5,0.5" Background="#FFF00909" Maximum="120">
             <ProgressBar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -31,5 +29,9 @@
                 </TransformGroup>
             </ProgressBar.RenderTransform>
         </ProgressBar>
+
+        <Button x:Name="BtnGiocaAncora" Content="Gioca ancora" Width="122" Height="60" FontSize="16" Click="BtnGiocaAncora_Click" Visibility="Hidden" Canvas.Left="88" Canvas.Top="151"/>
+        <Button x:Name="BtnHome" Content="Home" Width="122" Height="60" FontSize="16" Click="BtnHome_Click" Visibility="Hidden" Canvas.Left="290" Canvas.Top="151"/>
+        <Label x:Name="lblVincitore" Content="" Canvas.Left="52" Canvas.Top="105" Width="404" FontSize="20" Visibility="Hidden" HorizontalContentAlignment="Center"/>
     </Canvas>
 </Window>

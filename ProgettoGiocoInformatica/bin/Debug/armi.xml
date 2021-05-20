@@ -3,26 +3,26 @@
 	<Arma>
 		<Nome>Pugno</Nome>
 		<PercorsoImmagine>\Immagini\Armi\pugno.png</PercorsoImmagine>
-		<Danno>10</Danno>
+		<Danno>3</Danno>
 	</Arma>
 	<Arma>
 		<Nome>Tirapugni</Nome>
 		<PercorsoImmagine>\Immagini\Armi\tirapugni.png</PercorsoImmagine>
-		<Danno>30</Danno>
+		<Danno>5</Danno>
 	</Arma>
 	<Arma>
 		<Nome>Bastone</Nome>
 		<PercorsoImmagine>\Immagini\Armi\bastone.png</PercorsoImmagine>
-		<Danno>20</Danno>
+		<Danno>4</Danno>
 	</Arma>
 	<Arma>
 		<Nome>Spada</Nome>
 		<PercorsoImmagine>\Immagini\Armi\spada.png</PercorsoImmagine>
-		<Danno>40</Danno>
+		<Danno>8</Danno>
 	</Arma>
 	<Arma>
 		<Nome>Coltello</Nome>
 		<PercorsoImmagine>\Immagini\Armi\coltello.png</PercorsoImmagine>
-		<Danno>20</Danno>
+		<Danno>7</Danno>
 	</Arma> 
 </ArrayOfArma>

@@ -138,5 +138,8 @@
     <Resource Include="Immagini\Armi\spada.png" />
     <Resource Include="Immagini\Armi\tirapugni.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Immagini\Pavimenti\pavimento1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

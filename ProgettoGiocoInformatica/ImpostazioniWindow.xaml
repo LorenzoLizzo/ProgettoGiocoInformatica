@@ -8,8 +8,9 @@
         Title="Impostazioni" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <CheckBox x:Name="ckXfx" Content="Effetti sonori" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="ckXfx_Click"/>
-        <CheckBox x:Name="ckIntero" Content="Schermo Intero" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Click="ckIntero_Click"/>
+        <CheckBox x:Name="ckIntero" Content="Schermo Intero" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Click="ckIntero_Click" IsEnabled="False"/>
         <CheckBox x:Name="ckMusica" Content="Musica" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Click="ckMusica_Click"/>
         <Button x:Name="btnIndietro" Content="Indietro" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="75" Height="48" Click="btnIndietro_Click"/>
+        <Label Content="Funzionalità non disponibili" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="122,84,0,0" Background="Red" FontSize="24"/>
     </Grid>
 </Window>

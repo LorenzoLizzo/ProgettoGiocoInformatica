@@ -3,7 +3,7 @@
 <Personaggio>
 	<Nome>Flin</Nome>
 	<PercorsoImmagine>\Immagini\Personaggi\p1.png</PercorsoImmagine>
-	<PuntiVita>100</PuntiVita>
+	<PuntiVita>120</PuntiVita>
 	<ListaAnimazioni>
 	<Animazione>
 		<Nome>Prova</Nome>
@@ -13,7 +13,7 @@
 		</Frame>
 	</Animazione>
 	</ListaAnimazioni>
-	<PuntiForzaBase>50</PuntiForzaBase>
+	<PuntiForzaBase>5</PuntiForzaBase>
 </Personaggio>
 <Personaggio>
 	<Nome>Flik</Nome>
@@ -28,6 +28,6 @@
 		</Frame>
 	</Animazione>
 	</ListaAnimazioni>
-	<PuntiForzaBase>50</PuntiForzaBase>
+	<PuntiForzaBase>10</PuntiForzaBase>
 </Personaggio>
 </ArrayOfPersonaggio>

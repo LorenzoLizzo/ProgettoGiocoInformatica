@@ -200,8 +200,6 @@ namespace ProgettoGiocoInformatica
             }
         }
 
-      
-
         public bool Equals(Personaggio other)
         {
             return this.Nome.Equals(other.Nome);
