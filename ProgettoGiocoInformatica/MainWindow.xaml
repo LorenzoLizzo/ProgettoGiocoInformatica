@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgettoGiocoInformatica"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Champions of the brawl" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
     <Grid>
-        <Label Content="Titolo" HorizontalAlignment="Left" Margin="352,36,0,0" VerticalAlignment="Top" Width="74" Height="50" RenderTransformOrigin="0.5,0.5" FontSize="24"/>
+        <Label Content="CHAMPIONS OF THE BRAWL" HorizontalAlignment="Center" Width="494" Height="73" RenderTransformOrigin="0.5,0.5" FontSize="36" FontWeight="Bold" FontStyle="Italic" Margin="150,40,150,308"/>
         <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Height="29" Margin="88,187,0,0" VerticalAlignment="Top" Width="618" ValueChanged="progress_ValueChanged"/>
         <Label x:Name="lbl" Content="Caricamento: " HorizontalAlignment="Left" Margin="88,143,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <Button x:Name="btnGioca" Content="Gioca" HorizontalAlignment="Left" Margin="273,230,0,0" VerticalAlignment="Top" Width="254" Click="btnGioca_Click" Height="132" FontSize="72"/>
+        <Button x:Name="btnGioca" Content="Gioca!" HorizontalAlignment="Left" Margin="273,230,0,0" VerticalAlignment="Top" Width="254" Click="btnGioca_Click" Height="132" FontSize="72"/>
     </Grid>
 </Window>

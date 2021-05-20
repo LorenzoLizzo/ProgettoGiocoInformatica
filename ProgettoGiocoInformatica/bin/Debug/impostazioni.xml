@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Impostazioni xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Musica>true</Musica>
+  <Musica>false</Musica>
   <SchermoIntero>false</SchermoIntero>
-  <EffettiSonori>true</EffettiSonori>
+  <EffettiSonori>false</EffettiSonori>
 </Impostazioni>

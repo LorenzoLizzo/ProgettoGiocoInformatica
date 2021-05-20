@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgettoGiocoInformatica"
         mc:Ignorable="d"
-        Title="Combattimento" Height="350" Width="525" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Champions of the brawl" Height="350" Width="525" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Canvas x:Name="canvasCombattimento" KeyDown="TastoPremuto" KeyUp="TastoLasciato" Focusable="True" >
         <StackPanel x:Name="stackPanelP1" Canvas.Left="22" Orientation="Vertical" Canvas.Top="170" Width="71">
             <Label x:Name="lblP1" Content="P1" Margin="24,0"/>

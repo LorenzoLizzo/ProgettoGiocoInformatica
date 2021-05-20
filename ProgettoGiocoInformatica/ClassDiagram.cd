@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ProgettoGiocoInformatica.Animazione">
-    <Position X="7.5" Y="3.75" Width="1.5" />
+    <Position X="12.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAEQAAE=</HashCode>
       <FileName>Animazione.cs</FileName>
@@ -11,42 +11,48 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ProgettoGiocoInformatica.Arma">
-    <Position X="1" Y="0.5" Width="1.5" />
+    <Position X="1.25" Y="2" Width="2" />
     <TypeIdentifier>
       <HashCode>BAAAIAAAAAAAAAAAQAAAAABAAAAAAACAAAAAAAEAAAA=</HashCode>
       <FileName>Arma.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProgettoGiocoInformatica.Frame">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="15.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Frame.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProgettoGiocoInformatica.Impostazioni">
-    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Position X="11.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAEAAAAAAACABAAAAEAgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Impostazioni.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProgettoGiocoInformatica.Personaggio">
-    <Position X="1" Y="3.75" Width="1.5" />
+    <Position X="9.25" Y="2.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>BAgAoQCEAAAADAAKgAEgIEHAEAAAggAAACAAAAEQAAA=</HashCode>
+      <HashCode>BAgAoQCEAAAADABKgAEgIEFAAAAAggAAACAAgAEQAAA=</HashCode>
       <FileName>Personaggio.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="ListaAnimazioni" />
-      <Property Name="ListaArmi" />
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ProgettoGiocoInformatica.Videogioco">
-    <Position X="10.75" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="1" Width="1.5" />
+    <AssociationLine Name="Impostazioni" Type="ProgettoGiocoInformatica.Impostazioni" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.75" Y="1" />
+        <Point X="6.75" Y="0.812" />
+        <Point X="11.75" Y="0.812" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAABAAgAAAACRAAAAAACAAgAAAAAAAAQ=</HashCode>
+      <HashCode>AIAAQAAAAAAAAABAAgAAAACRBAAAAACAAgAAAAAAAAQ=</HashCode>
       <FileName>Videogioco.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -58,25 +64,49 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ProgettoGiocoInformatica.CombattimentoClasse">
-    <Position X="5" Y="3.25" Width="1.5" />
+    <Position X="3.75" Y="5" Width="2.25" />
+    <AssociationLine Name="ArmaP1" Type="ProgettoGiocoInformatica.Arma" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.75" Y="6.984" />
+        <Point X="0.875" Y="6.984" />
+        <Point X="0.875" Y="4.5" />
+        <Point X="1.25" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ArmaP2" Type="ProgettoGiocoInformatica.Arma" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.75" Y="6" />
+        <Point X="2.062" Y="6" />
+        <Point X="2.062" Y="4.776" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>CAAAAAABAAAAAAAAAQAAARAABMCAAAAAAAAAAAAQAgA=</HashCode>
+      <HashCode>CAAAACABAAAAAAAAAAAAAQAAANCAAAAAAAAAAAAQAgA=</HashCode>
       <FileName>CombattimentoClasse.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="ArmaP1" />
-      <Property Name="ArmaP2" />
       <Property Name="P1" />
       <Property Name="P2" />
-      <Property Name="Vincitore" />
+      <Property Name="ArmaP1" />
+      <Property Name="ArmaP2" />
     </ShowAsAssociation>
   </Class>
   <Class Name="ProgettoGiocoInformatica.PersonaggioSenzaVitaException">
-    <Position X="9.75" Y="4.5" Width="1.5" />
+    <Position X="14" Y="1" Width="2.75" />
+    <AssociationLine Name="Vincitore" Type="ProgettoGiocoInformatica.Personaggio" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15" Y="2.233" />
+        <Point X="15" Y="4.062" />
+        <Point X="11.25" Y="4.062" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PersonaggioSenzaVitaExeption.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Vincitore" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

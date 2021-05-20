@@ -80,6 +80,11 @@ namespace ProgettoGiocoInformatica
                             Canvas.SetTop(stackPanelP1, Canvas.GetTop(stackPanelP1) - ClasseCombattimento.P1.VelocitaSalto);
 
                             ClasseCombattimento.P1.Gravita -= 1;
+
+                            if(Canvas.GetTop(stackPanelP1) <= 0)
+                            {
+                                ClasseCombattimento.P1.Salta = false;
+                            }
                         }
                         else if (Canvas.GetTop(stackPanelP1) < 170)
                         {
@@ -118,6 +123,11 @@ namespace ProgettoGiocoInformatica
                         {
                             Canvas.SetTop(stackPanelP2, Canvas.GetTop(stackPanelP2) - ClasseCombattimento.P2.VelocitaSalto);
                             ClasseCombattimento.P2.Gravita -= 1;
+
+                            if (Canvas.GetTop(stackPanelP2) <= 0)
+                            {
+                                ClasseCombattimento.P2.Salta = false;
+                            }
                         }
                         else if (Canvas.GetTop(stackPanelP2) < 170)
                         {
@@ -159,7 +169,7 @@ namespace ProgettoGiocoInformatica
                             
                             ClasseCombattimento.P1.Attacca = false;
                         }
-                        Thread.Sleep(1);
+                        Thread.Sleep(8);
                     }
                 }
                 catch(PersonaggioSenzaVitaException ex)
@@ -198,7 +208,7 @@ namespace ProgettoGiocoInformatica
 
                             ClasseCombattimento.P2.Attacca = false;
                         }
-                        Thread.Sleep(1);
+                        Thread.Sleep(8);
                     }
                 }
                 catch (PersonaggioSenzaVitaException ex)

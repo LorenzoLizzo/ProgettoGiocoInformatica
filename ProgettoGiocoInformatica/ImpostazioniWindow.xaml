@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgettoGiocoInformatica"
         mc:Ignorable="d"
-        Title="Impostazioni" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Champions of the brawl" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <CheckBox x:Name="ckXfx" Content="Effetti sonori" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="ckXfx_Click"/>
         <CheckBox x:Name="ckIntero" Content="Schermo Intero" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Click="ckIntero_Click" IsEnabled="False"/>

@@ -189,7 +189,7 @@ namespace ProgettoGiocoInformatica
 
         private void btnProntoClick(object sender, RoutedEventArgs e)
         {
-            if ((Button)sender == btnProntoP1)
+            if ((Button)sender == btnProntoP1 && !imgPersonaggioP1.Source.Equals(imgPersonaggioP2.Source))
             {
                 //Il giocatore P1 è pronto
                 btnPrimaP1.IsEnabled = false;
@@ -214,7 +214,7 @@ namespace ProgettoGiocoInformatica
                     }
                 }
             }
-            else
+            else if ((Button)sender == btnProntoP2 && !imgPersonaggioP2.Source.Equals(imgPersonaggioP1.Source))
             {
                 //Il giocatore P2 è pronto
                 btnPrimaP2.IsEnabled = false;
